@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ann Nicole M. Diamante | Portfolio</title>
     <style>
-        /* Importing Poppins for normal text, and Great Vibes for the cursive text */
+        /* Importing Poppins for normal text */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        /* --- LOADING YOUR CUSTOM DAFONT --- */
+        @font-face {
+            font-family: 'Peristiwa';
+            src: url('peristiwa.otf') format('opentype'); 
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -18,7 +23,6 @@
             line-height: 1.7;
         }
 
-        /* --- NEW PALE CREAM HEADER --- */
         .top-bar {
             background-color: #fffcf2; 
             padding: 15px 30px;
@@ -29,7 +33,6 @@
             text-transform: uppercase;
         }
 
-        /* --- NEW PINK WELCOME SECTION --- */
         .hero {
             background-color: #fae6ed; 
             padding: 100px 20px 120px;
@@ -44,7 +47,7 @@
         }
 
         .portfolio-title {
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Peristiwa', cursive;
             font-size: 7em;
             color: #000;
             margin: -10px 0 0 0;
@@ -52,7 +55,6 @@
             line-height: 1.2;
         }
 
-        /* Makes the cursive text slightly smaller on mobile phones */
         @media (max-width: 768px) {
             .portfolio-title {
                 font-size: 5em;
@@ -167,12 +169,10 @@
 </head>
 <body>
 
-    <!-- PALE CREAM HEADER -->
     <header class="top-bar">
         Ann Nicole M. Diamante
     </header>
 
-    <!-- PINK WELCOME SECTION -->
     <section class="hero">
         <p class="welcome-text">welcome to my</p>
         <h1 class="portfolio-title">Portfolio</h1>
