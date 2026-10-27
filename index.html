@@ -17,7 +17,6 @@
         }
 
         .hero {
-            /* Updated to a soft baby pink gradient */
             background: linear-gradient(135deg, #fff0f5 0%, #fcdce1 100%);
             padding: 100px 20px;
             text-align: center;
@@ -43,6 +42,32 @@
             margin: 0 auto;
             padding: 50px 20px;
         }
+
+        /* --- NEW ABOUT SECTION STYLES --- */
+        .about-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-left: 6px solid #bde0fe; /* Pastel blue accent */
+        }
+
+        .about-section h2 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .about-section h2::after {
+            margin: 10px 0 0; /* Aligns the pink underline to the left */
+        }
+
+        .about-text {
+            color: #555;
+            font-size: 1.05em;
+        }
+        /* -------------------------------- */
 
         h2 {
             font-size: 2em;
@@ -128,6 +153,16 @@
     </section>
 
     <div class="container">
+        
+        <!-- ABOUT ME SECTION -->
+        <div class="about-section">
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>I am an Information Technology student currently building my foundations in web development and user interface design. I approach my work with a focus on organization, straightforward problem-solving, and functional aesthetics.</p>
+                <p>My technical toolkit includes utilizing HTML, CSS, PHP, and SQL to structure web applications and databases. Alongside programming, I have a strong background in graphic design and crafting presentation decks, which drives my goal to create digital experiences that are visually cohesive and highly accessible.</p>
+            </div>
+        </div>
+
         <h2>Selected Projects</h2>
         
         <div class="project-grid">
