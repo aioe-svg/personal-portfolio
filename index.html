@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ann Nicole M. Diamante | Portfolio</title>
     <style>
+        /* Importing Poppins for normal text, and Great Vibes for the cursive text */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -16,25 +18,45 @@
             line-height: 1.7;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #fff0f5 0%, #fcdce1 100%);
-            padding: 100px 20px;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #2c3e50;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.15em;
+        /* --- NEW PALE CREAM HEADER --- */
+        .top-bar {
+            background-color: #fffcf2; 
+            padding: 15px 30px;
+            font-weight: 600;
             color: #7f8c8d;
-            max-width: 650px;
-            margin: 15px auto 0;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- NEW PINK WELCOME SECTION --- */
+        .hero {
+            background-color: #fae6ed; 
+            padding: 100px 20px 120px;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 1.8em;
+            color: #111;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .portfolio-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 7em;
+            color: #000;
+            margin: -10px 0 0 0;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        /* Makes the cursive text slightly smaller on mobile phones */
+        @media (max-width: 768px) {
+            .portfolio-title {
+                font-size: 5em;
+            }
         }
 
         .container {
@@ -145,9 +167,15 @@
 </head>
 <body>
 
+    <!-- PALE CREAM HEADER -->
+    <header class="top-bar">
+        Ann Nicole M. Diamante
+    </header>
+
+    <!-- PINK WELCOME SECTION -->
     <section class="hero">
-        <h1>Ann Nicole M. Diamante</h1>
-        <p>BSIT student at Polytechnic University of the Philippines Sta. Mesa. An aspiring developer and UI designer with a growing interest in clean visual layouts, seamless human-computer interaction, and efficient systems.</p>
+        <p class="welcome-text">welcome to my</p>
+        <h1 class="portfolio-title">Portfolio</h1>
     </section>
 
     <div class="container">
