@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ann Nicole M. Diamante | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf9f6; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .hero {
+            /* Updated to a soft baby pink gradient */
+            background: linear-gradient(135deg, #fff0f5 0%, #fcdce1 100%);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #2c3e50;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.15em;
+            color: #7f8c8d;
+            max-width: 650px;
+            margin: 15px auto 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: #ffd1dc; 
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 6px solid;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .card-1 { border-color: #bde0fe; } 
+        .card-2 { border-color: #ffd1dc; } 
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .tags {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f1f2f6;
+            color: #576574;
+            font-size: 0.8em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>Ann Nicole M. Diamante</h1>
+        <p>BSIT student at Polytechnic University of the Philippines Sta. Mesa. An aspiring developer and UI designer with a growing interest in clean visual layouts, seamless human-computer interaction, and efficient systems.</p>
+    </section>
+
+    <div class="container">
+        <h2>Selected Projects</h2>
+        
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="card card-1">
+                <h3>Aklatan: Pylon IskoReads</h3>
+                <p>A mobile library application prototype focused on enhancing user interface design and accessibility for NALLRC library users.</p>
+                <div class="tags">
+                    <span class="tag">HCI Research</span>
+                    <span class="tag">UI Design</span>
+                    <span class="tag">Prototyping</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card card-2">
+                <h3>DOLE Contractor System</h3>
+                <p>A comprehensive registration system project featuring robust database normalization, ERD modeling, and clear presentation deliverables.</p>
+                <div class="tags">
+                    <span class="tag">Database Design</span>
+                    <span class="tag">System Architecture</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Ann Nicole M. Diamante.
+    </footer>
+
+</body>
+</html>
