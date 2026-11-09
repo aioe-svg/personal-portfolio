@@ -40,7 +40,7 @@
         .welcome-text {
             font-size: 2.2em;
             color: #111;
-            margin: 0 0 10px 0;
+            margin: 0 0 25px 0; /* Positive margin creates vertical separation */
             font-weight: 400;
         }
 
@@ -48,7 +48,7 @@
             font-family: 'Peristiwa', cursive;
             font-size: 11em;
             color: #000;
-            margin: 0;
+            margin: 15px 0 0 0; /* Top margin prevents high ascenders (like the 'P' and 't') from reaching the line above */
             font-weight: normal; 
             line-height: 1;
         }
@@ -56,10 +56,11 @@
         @media (max-width: 768px) {
             .portfolio-title {
                 font-size: 6em;
+                margin-top: 10px;
             }
             .welcome-text {
                 font-size: 1.6em;
-                margin: 0 0 5px 0;
+                margin-bottom: 15px;
             }
         }
 
