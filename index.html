@@ -12,43 +12,52 @@
             src: url('peristiwa.otf') format('opentype'); 
         }
 
+        :root {
+            --bg-cream: #fef8ee;
+            --blush-pink: #ffe5f2;
+            --rosy-pink: #f9d0e3;
+            --deep-mauve: #7c5a67;
+            --text-body: #5c474f;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #faf9f6; 
-            color: #333;
+            background-color: var(--bg-cream); 
+            color: var(--text-body);
             margin: 0;
             padding: 0;
             line-height: 1.7;
         }
 
         .top-bar {
-            background-color: #fffcf2; 
+            background-color: var(--bg-cream); 
+            border-bottom: 1px solid var(--rosy-pink);
             padding: 15px 30px;
             font-weight: 600;
-            color: #7f8c8d;
+            color: var(--deep-mauve);
             font-size: 0.9em;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .hero {
-            background-color: #fae6ed; 
+            background-color: var(--blush-pink); 
             padding: 120px 20px 140px;
             text-align: center;
         }
 
         .welcome-text {
             font-size: 2.2em;
-            color: #111;
-            margin: 0 0 25px 0; /* Positive margin creates vertical separation */
+            color: var(--deep-mauve);
+            margin: 0 0 25px 0;
             font-weight: 400;
         }
 
         .portfolio-title {
             font-family: 'Peristiwa', cursive;
             font-size: 11em;
-            color: #000;
-            margin: 15px 0 0 0; /* Top margin prevents high ascenders (like the 'P' and 't') from reaching the line above */
+            color: var(--deep-mauve);
+            margin: 15px 0 0 0;
             font-weight: normal; 
             line-height: 1;
         }
@@ -75,8 +84,8 @@
             border-radius: 16px;
             padding: 40px;
             margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-left: 6px solid #bde0fe;
+            box-shadow: 0 10px 30px rgba(124, 90, 103, 0.06);
+            border-left: 6px solid var(--rosy-pink);
         }
 
         .about-section h2 {
@@ -90,13 +99,13 @@
         }
 
         .about-text {
-            color: #555;
+            color: var(--text-body);
             font-size: 1.05em;
         }
 
         h2 {
             font-size: 2em;
-            color: #2c3e50;
+            color: var(--deep-mauve);
             text-align: center;
             margin-bottom: 40px;
             position: relative;
@@ -106,7 +115,7 @@
             content: '';
             width: 60px;
             height: 3px;
-            background-color: #ffd1dc; 
+            background-color: var(--rosy-pink); 
             display: block;
             margin: 10px auto 0;
             border-radius: 2px;
@@ -122,28 +131,28 @@
             background: #ffffff;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(124, 90, 103, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 6px solid;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            box-shadow: 0 15px 35px rgba(124, 90, 103, 0.12);
         }
 
-        .card-1 { border-color: #bde0fe; } 
-        .card-2 { border-color: #ffd1dc; } 
+        .card-1 { border-color: var(--rosy-pink); } 
+        .card-2 { border-color: var(--deep-mauve); } 
 
         .card h3 {
             margin-top: 0;
             font-size: 1.4em;
-            color: #2c3e50;
+            color: var(--deep-mauve);
         }
 
         .card p {
             font-size: 0.95em;
-            color: #555;
+            color: var(--text-body);
         }
 
         .tags {
@@ -154,8 +163,8 @@
         }
 
         .tag {
-            background: #f1f2f6;
-            color: #576574;
+            background: var(--blush-pink);
+            color: var(--deep-mauve);
             font-size: 0.8em;
             padding: 5px 12px;
             border-radius: 20px;
@@ -165,7 +174,8 @@
         footer {
             text-align: center;
             padding: 30px;
-            color: #999;
+            color: var(--deep-mauve);
+            opacity: 0.75;
             font-size: 0.9em;
         }
     </style>
