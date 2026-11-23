@@ -235,7 +235,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 520px));
+            grid-template-columns: minmax(280px, 780px);
             justify-content: center;
             gap: 30px;
         }
@@ -243,12 +243,14 @@
         .card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 28px;
+            padding: 32px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 6px solid var(--rosy-pink);
-            display: flex;
-            flex-direction: column;
+            border-left: 6px solid var(--rosy-pink);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+            align-items: center;
         }
 
         .card:hover {
@@ -258,40 +260,41 @@
 
         .project-preview {
             width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, var(--blush-pink), var(--bg-cream));
-            border: 1px solid var(--rosy-pink);
-            border-radius: 12px;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: auto;
+            background: var(--blush-pink);
+            border: 2px solid var(--rosy-pink);
+            border-radius: 14px;
             overflow: hidden;
+            box-shadow: 0 6px 18px rgba(60, 33, 21, 0.08);
             box-sizing: border-box;
         }
 
         .project-preview img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: column;
         }
 
         .card h3 {
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-size: 1.5em;
             color: var(--espresso-brown);
         }
 
         .card p {
-            font-size: 0.95em;
+            font-size: 0.98em;
             color: var(--text-body);
             margin-top: 0;
-            flex-grow: 1;
+            margin-bottom: 16px;
         }
 
         .tags {
-            margin-top: 12px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -307,8 +310,8 @@
         }
 
         .card-actions {
-            margin-top: 20px;
-            padding-top: 16px;
+            margin-top: 22px;
+            padding-top: 18px;
             border-top: 1px solid var(--blush-pink);
             display: flex;
             gap: 10px;
@@ -317,12 +320,12 @@
         .btn-outline {
             display: inline-block;
             text-decoration: none;
-            font-size: 0.85em;
+            font-size: 0.88em;
             font-weight: 600;
             color: var(--espresso-brown);
             background-color: var(--bg-cream);
             border: 1.5px solid var(--espresso-brown);
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 20px;
             transition: background-color 0.25s ease, color 0.25s ease;
         }
@@ -558,6 +561,14 @@
                 font-size: 1.6em;
                 margin-bottom: 15px;
             }
+            .card {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+            .project-preview {
+                max-width: 240px;
+                margin: 0 auto;
+            }
             .contact-card {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -669,15 +680,17 @@
                     <div class="project-preview">
                         <img src="aklatan-preview.png" alt="Aklatan: Pylon IskoReads Preview">
                     </div>
-                    <h3>Aklatan: Pylon IskoReads</h3>
-                    <p>A mobile and web library app prototype for PUP NALLRC that eliminates long kiosk queues through one-time profile setup, instant QR code check-in, and real-time seat capacity tracking.</p>
-                    <div class="tags">
-                        <span class="tag">HCI Research</span>
-                        <span class="tag">UI/UX Design</span>
-                        <span class="tag">Figma Prototype</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://www.figma.com/proto/Z9Pwp96G6iDYp6Mgc9vI0x/master?node-id=774-1067&p=f&t=WtdM5l8GoUVnULWc-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A3&starting-point-node-id=774%3A1067" target="_blank" class="btn-outline">View Prototype</a>
+                    <div class="project-details">
+                        <h3>Aklatan: Pylon IskoReads</h3>
+                        <p>A mobile and web library app prototype for PUP NALLRC that eliminates long kiosk queues through one-time profile setup, instant QR code check-in, and real-time seat capacity tracking.</p>
+                        <div class="tags">
+                            <span class="tag">HCI Research</span>
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">Figma Prototype</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://www.figma.com/proto/Z9Pwp96G6iDYp6Mgc9vI0x/master?node-id=774-1067&p=f&t=WtdM5l8GoUVnULWc-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A3&starting-point-node-id=774%3A1067" target="_blank" class="btn-outline">View Prototype</a>
+                        </div>
                     </div>
                 </div>
             </div>
