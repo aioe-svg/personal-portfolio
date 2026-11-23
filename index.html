@@ -141,103 +141,37 @@
             background-color: var(--espresso-brown);
         }
 
-        .open-book {
-            position: relative;
+        .spread-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1.5px solid var(--rosy-pink);
+            box-shadow: 0 12px 32px rgba(60, 33, 21, 0.06);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
-            align-items: stretch;
-            background: var(--espresso-brown);
-            padding: 12px 14px 18px;
-            border-radius: 22px;
-            box-shadow: 0 18px 40px rgba(60, 33, 21, 0.18);
+            overflow: hidden;
         }
 
-        .open-book::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 36px;
-            background: linear-gradient(
-                90deg,
-                rgba(60, 33, 21, 0) 0%,
-                rgba(60, 33, 21, 0.08) 35%,
-                rgba(60, 33, 21, 0.22) 50%,
-                rgba(60, 33, 21, 0.08) 65%,
-                rgba(60, 33, 21, 0) 100%
-            );
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .open-book::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 56px;
-            height: 12px;
-            background-color: var(--rosy-pink);
-            border-radius: 0 0 12px 12px;
-            z-index: 4;
-        }
-
-        .book-page {
-            position: relative;
-            background: #ffffff;
-            padding: 40px 42px;
+        .spread-left {
+            padding: 42px;
+            border-right: 1.5px dashed var(--rosy-pink);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 1px solid #eadad1;
         }
 
-        .book-page-left {
-            border-radius: 16px 26px 26px 16px;
-            border-right: 1px solid rgba(60, 33, 21, 0.14);
-            box-shadow:
-                inset -14px 0 22px -12px rgba(60, 33, 21, 0.14),
-                -4px 6px 0 -1px #f7eee8,
-                -5px 7px 0 0 #e5d2c7;
+        .spread-right {
+            padding: 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .book-page-right {
-            border-radius: 26px 16px 16px 26px;
-            border-left: 1px solid rgba(60, 33, 21, 0.14);
-            box-shadow:
-                inset 14px 0 22px -12px rgba(60, 33, 21, 0.14),
-                4px 6px 0 -1px #f7eee8,
-                5px 7px 0 0 #e5d2c7;
-        }
-
-        .page-number {
-            display: block;
-            font-size: 0.75em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--espresso-brown);
-            opacity: 0.45;
-            margin-top: 20px;
-        }
-
-        .book-page-left .page-number {
-            text-align: left;
-        }
-
-        .book-page-right .page-number {
-            text-align: right;
-        }
-
-        .book-page h2 {
+        .spread-card h2 {
             text-align: left;
             margin-bottom: 18px;
         }
 
-        .book-page h2::after {
+        .spread-card h2::after {
             margin: 10px 0 0;
         }
 
@@ -630,30 +564,16 @@
         }
 
         @media (max-width: 900px) {
-            .open-book {
+            .spread-card {
                 grid-template-columns: 1fr;
-                padding: 12px 12px 16px;
             }
-            .open-book::before {
-                display: none;
+            .spread-left {
+                padding: 32px 26px;
+                border-right: none;
+                border-bottom: 1.5px dashed var(--rosy-pink);
             }
-            .open-book::after {
-                display: none;
-            }
-            .book-page {
-                padding: 30px 26px;
-            }
-            .book-page-left {
-                border-radius: 16px 16px 22px 22px;
-                border-right: 1px solid #eadad1;
-                border-bottom: 1px solid rgba(60, 33, 21, 0.14);
-                box-shadow: inset 0 -12px 18px -10px rgba(60, 33, 21, 0.12);
-            }
-            .book-page-right {
-                border-radius: 22px 22px 16px 16px;
-                border-left: 1px solid #eadad1;
-                border-top: 1px solid rgba(60, 33, 21, 0.14);
-                box-shadow: inset 0 12px 18px -10px rgba(60, 33, 21, 0.12);
+            .spread-right {
+                padding: 32px 26px;
             }
         }
 
@@ -718,34 +638,33 @@
 
     <section id="about" class="section-band bg-cream">
         <div class="container">
-            <div class="open-book">
-                <div class="book-page book-page-left">
+            <div class="spread-card">
+                <div class="spread-left">
                     <div>
                         <h2>About Me</h2>
                         <div class="about-text">
                             <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
                             <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
                         </div>
+                    </div>
 
-                        <div class="highlight-strip">
-                            <div class="highlight-item">
-                                <span class="highlight-label">Education</span>
-                                <span class="highlight-value">BS Information Technology</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-label">Location</span>
-                                <span class="highlight-value">Sta. Mesa, Manila</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-label">Focus Areas</span>
-                                <span class="highlight-value">UI/UX &amp; Web Foundations</span>
-                            </div>
+                    <div class="highlight-strip">
+                        <div class="highlight-item">
+                            <span class="highlight-label">Education</span>
+                            <span class="highlight-value">BS Information Technology</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-label">Location</span>
+                            <span class="highlight-value">Sta. Mesa, Manila</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-label">Focus Areas</span>
+                            <span class="highlight-value">UI/UX &amp; Web Foundations</span>
                         </div>
                     </div>
-                    <span class="page-number">01</span>
                 </div>
 
-                <div class="book-page book-page-right">
+                <div class="spread-right">
                     <div>
                         <h2>Skills &amp; Tools</h2>
                         <div class="skills-stack">
@@ -784,7 +703,6 @@
                             </div>
                         </div>
                     </div>
-                    <span class="page-number">02</span>
                 </div>
             </div>
         </div>
