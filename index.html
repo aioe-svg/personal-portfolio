@@ -235,17 +235,18 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 520px));
+            justify-content: center;
             gap: 30px;
         }
 
         .card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 26px;
+            padding: 28px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 6px solid;
+            border-top: 6px solid var(--rosy-pink);
             display: flex;
             flex-direction: column;
         }
@@ -255,26 +256,17 @@
             box-shadow: 0 15px 35px rgba(60, 33, 21, 0.1);
         }
 
-        .card-1 { border-color: var(--rosy-pink); } 
-        .card-2 { border-color: var(--espresso-brown); } 
-        .card-3 { border-color: var(--rosy-pink); }
-
         .project-preview {
             width: 100%;
-            height: 160px;
+            height: 220px;
             background: linear-gradient(135deg, var(--blush-pink), var(--bg-cream));
-            border: 1px dashed var(--rosy-pink);
+            border: 1px solid var(--rosy-pink);
             border-radius: 12px;
             margin-bottom: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            color: var(--espresso-brown);
-            font-size: 0.85em;
-            font-weight: 500;
-            text-align: center;
-            padding: 10px;
             box-sizing: border-box;
         }
 
@@ -287,7 +279,7 @@
         .card h3 {
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 1.35em;
+            font-size: 1.4em;
             color: var(--espresso-brown);
         }
 
@@ -330,7 +322,7 @@
             color: var(--espresso-brown);
             background-color: var(--bg-cream);
             border: 1.5px solid var(--espresso-brown);
-            padding: 7px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             transition: background-color 0.25s ease, color 0.25s ease;
         }
@@ -673,50 +665,19 @@
         <div class="container">
             <h2>Selected Projects</h2>
             <div class="project-grid">
-                <div class="card card-1">
+                <div class="card">
                     <div class="project-preview">
-                        <span>App Prototype Preview<br>(Add screenshot: aklatan-preview.png)</span>
+                        <img src="aklatan-preview.png" alt="Aklatan: Pylon IskoReads Preview">
                     </div>
                     <h3>Aklatan: Pylon IskoReads</h3>
-                    <p>A mobile library application prototype focused on enhancing user interface design and accessibility for NALLRC library users.</p>
+                    <p>A mobile and web library app prototype for PUP NALLRC that eliminates long kiosk queues through one-time profile setup, instant QR code check-in, and real-time seat capacity tracking.</p>
                     <div class="tags">
                         <span class="tag">HCI Research</span>
-                        <span class="tag">UI Design</span>
-                        <span class="tag">Prototyping</span>
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Figma Prototype</span>
                     </div>
                     <div class="card-actions">
-                        <a href="#" class="btn-outline">View Prototype</a>
-                    </div>
-                </div>
-
-                <div class="card card-2">
-                    <div class="project-preview">
-                        <span>System &amp; ERD Preview<br>(Add screenshot: dole-preview.png)</span>
-                    </div>
-                    <h3>DOLE Contractor System</h3>
-                    <p>A comprehensive registration system project featuring robust database normalization, ERD modeling, and clear presentation deliverables.</p>
-                    <div class="tags">
-                        <span class="tag">Database Design</span>
-                        <span class="tag">System Architecture</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="#" class="btn-outline">View Case Study</a>
-                    </div>
-                </div>
-
-                <div class="card card-3">
-                    <div class="project-preview">
-                        <span>Personal Brand &amp; Web<br>(Add screenshot: portfolio-preview.png)</span>
-                    </div>
-                    <h3>Pastel Brand &amp; Web Portfolio</h3>
-                    <p>A cohesive personal identity spanning a custom QR business card and responsive HTML/CSS portfolio deployed via GitHub and Vercel.</p>
-                    <div class="tags">
-                        <span class="tag">HTML &amp; CSS</span>
-                        <span class="tag">Brand Identity</span>
-                        <span class="tag">Responsive UI</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://github.com" target="_blank" class="btn-outline">GitHub Repo</a>
+                        <a href="https://www.figma.com/proto/Z9Pwp96G6iDYp6Mgc9vI0x/master?node-id=774-1067&p=f&t=WtdM5l8GoUVnULWc-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A3&starting-point-node-id=774%3A1067" target="_blank" class="btn-outline">View Prototype</a>
                     </div>
                 </div>
             </div>
@@ -820,7 +781,7 @@
 
                 <div class="qr-box">
                     <div class="qr-placeholder">
-                        <img src="business-card-qr.png" alt="Business Card QR Code">
+                        <img src="business-card-qr.jpg" alt="Business Card QR Code">
                     </div>
                     <p class="qr-caption">Check Out My Business Card!</p>
                 </div>
