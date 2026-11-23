@@ -33,7 +33,6 @@
             line-height: 1.7;
         }
 
-        /* Navigation Bar */
         .top-bar {
             background-color: rgba(254, 248, 238, 0.95);
             backdrop-filter: blur(6px);
@@ -79,7 +78,24 @@
             background-color: var(--blush-pink);
         }
 
-        /* Hero Banner (Clean - no button) */
+        .section-band {
+            padding: 75px 20px;
+            scroll-margin-top: 60px;
+        }
+
+        .bg-cream {
+            background-color: var(--bg-cream);
+        }
+
+        .bg-pink {
+            background-color: var(--blush-pink);
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
         .hero {
             background-color: var(--blush-pink); 
             padding: 120px 20px 140px;
@@ -102,21 +118,11 @@
             line-height: 1;
         }
 
-        .container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        section {
-            scroll-margin-top: 80px;
-            margin-bottom: 75px;
-        }
-
         h2 {
             font-size: 2em;
             color: var(--espresso-brown);
             text-align: center;
+            margin-top: 0;
             margin-bottom: 40px;
             position: relative;
         }
@@ -131,8 +137,11 @@
             border-radius: 2px;
         }
 
-        /* About Section + Highlight Strip */
-        .about-section {
+        .bg-pink h2::after {
+            background-color: var(--espresso-brown);
+        }
+
+        .about-card {
             background: #ffffff;
             border-radius: 16px;
             padding: 40px;
@@ -140,13 +149,12 @@
             border-left: 6px solid var(--rosy-pink);
         }
 
-        .about-section h2 {
+        .about-card h2 {
             text-align: left;
-            margin-top: 0;
             margin-bottom: 20px;
         }
 
-        .about-section h2::after {
+        .about-card h2::after {
             margin: 10px 0 0;
         }
 
@@ -188,7 +196,6 @@
             color: var(--espresso-brown);
         }
 
-        /* Skills & Tools Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -200,7 +207,7 @@
             border-radius: 16px;
             padding: 28px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
-            border-top: 5px solid var(--rosy-pink);
+            border-top: 5px solid var(--espresso-brown);
         }
 
         .skill-card h3 {
@@ -217,7 +224,7 @@
         }
 
         .skill-pill {
-            background-color: var(--blush-pink);
+            background-color: var(--bg-cream);
             color: var(--espresso-brown);
             font-size: 0.85em;
             font-weight: 500;
@@ -226,7 +233,6 @@
             border: 1px solid var(--rosy-pink);
         }
 
-        /* Selected Projects (Upgraded with Thumbnails & Action Buttons) */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -334,7 +340,6 @@
             color: var(--bg-cream);
         }
 
-        /* Creative Gallery Section */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -357,7 +362,8 @@
         .gallery-thumb {
             width: 100%;
             height: 190px;
-            background-color: var(--blush-pink);
+            background-color: var(--bg-cream);
+            border: 1px dashed var(--rosy-pink);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -392,7 +398,6 @@
             opacity: 0.85;
         }
 
-        /* Certificates Section */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -448,9 +453,8 @@
             border-bottom-color: var(--espresso-brown);
         }
 
-        /* Contact & QR Code Section */
         .contact-card {
-            background: var(--blush-pink);
+            background: #ffffff;
             border: 2px solid var(--rosy-pink);
             border-radius: 20px;
             padding: 40px;
@@ -469,12 +473,12 @@
 
         .contact-info h2::after {
             margin: 10px 0 0;
-            background-color: var(--espresso-brown);
+            background-color: var(--rosy-pink);
         }
 
         .contact-info p {
             margin-bottom: 24px;
-            color: var(--espresso-brown);
+            color: var(--text-body);
         }
 
         .social-links {
@@ -485,7 +489,7 @@
 
         .social-btn {
             text-decoration: none;
-            background-color: #ffffff;
+            background-color: var(--bg-cream);
             color: var(--espresso-brown);
             border: 1.5px solid var(--espresso-brown);
             padding: 9px 18px;
@@ -501,7 +505,7 @@
         }
 
         .qr-box {
-            background: #ffffff;
+            background: var(--bg-cream);
             border: 2px dashed var(--rosy-pink);
             border-radius: 16px;
             padding: 22px;
@@ -512,7 +516,7 @@
             width: 150px;
             height: 150px;
             margin: 0 auto 12px;
-            background-color: var(--bg-cream);
+            background-color: #ffffff;
             border: 1px solid var(--rosy-pink);
             border-radius: 12px;
             display: flex;
@@ -539,10 +543,11 @@
         }
 
         footer {
+            background-color: var(--bg-cream);
             text-align: center;
             padding: 30px;
             color: var(--espresso-brown);
-            opacity: 0.75;
+            opacity: 0.85;
             font-size: 0.9em;
             border-top: 1px solid var(--rosy-pink);
         }
@@ -582,7 +587,6 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <header class="top-bar">
         <a href="#" class="brand-name">Ann Nicole M. Diamante</a>
         <nav class="nav-links">
@@ -595,40 +599,40 @@
         </nav>
     </header>
 
-    <!-- Hero Banner -->
     <section class="hero">
         <p class="welcome-text">welcome to my</p>
         <h1 class="portfolio-title">Portfolio</h1>
     </section>
 
-    <div class="container">
-        
-        <!-- About Me + Highlight Strip -->
-        <section id="about" class="about-section">
-            <h2>About Me</h2>
-            <div class="about-text">
-                <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
-                <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
-            </div>
+    <section id="about" class="section-band bg-cream">
+        <div class="container">
+            <div class="about-card">
+                <h2>About Me</h2>
+                <div class="about-text">
+                    <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
+                    <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
+                </div>
 
-            <div class="highlight-strip">
-                <div class="highlight-item">
-                    <span class="highlight-label">Education</span>
-                    <span class="highlight-value">BS Information Technology</span>
-                </div>
-                <div class="highlight-item">
-                    <span class="highlight-label">Location</span>
-                    <span class="highlight-value">Sta. Mesa, Manila</span>
-                </div>
-                <div class="highlight-item">
-                    <span class="highlight-label">Focus Areas</span>
-                    <span class="highlight-value">UI/UX &amp; Web Foundations</span>
+                <div class="highlight-strip">
+                    <div class="highlight-item">
+                        <span class="highlight-label">Education</span>
+                        <span class="highlight-value">BS Information Technology</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-label">Location</span>
+                        <span class="highlight-value">Sta. Mesa, Manila</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-label">Focus Areas</span>
+                        <span class="highlight-value">UI/UX &amp; Web Foundations</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills & Tools -->
-        <section id="skills">
+    <section id="skills" class="section-band bg-pink">
+        <div class="container">
             <h2>Skills &amp; Tools</h2>
             <div class="skills-grid">
                 <div class="skill-card">
@@ -665,15 +669,15 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Selected Projects (Upgraded) -->
-        <section id="projects">
+    <section id="projects" class="section-band bg-cream">
+        <div class="container">
             <h2>Selected Projects</h2>
             <div class="project-grid">
                 <div class="card card-1">
                     <div class="project-preview">
-                        <!-- Replace text below with: <img src="aklatan-preview.png" alt="Aklatan App Preview"> -->
                         <span>App Prototype Preview<br>(Add screenshot: aklatan-preview.png)</span>
                     </div>
                     <h3>Aklatan: Pylon IskoReads</h3>
@@ -690,7 +694,6 @@
 
                 <div class="card card-2">
                     <div class="project-preview">
-                        <!-- Replace text below with: <img src="dole-preview.png" alt="DOLE System Preview"> -->
                         <span>System &amp; ERD Preview<br>(Add screenshot: dole-preview.png)</span>
                     </div>
                     <h3>DOLE Contractor System</h3>
@@ -706,7 +709,6 @@
 
                 <div class="card card-3">
                     <div class="project-preview">
-                        <!-- Replace text below with: <img src="portfolio-preview.png" alt="Personal Brand & Portfolio"> -->
                         <span>Personal Brand &amp; Web<br>(Add screenshot: portfolio-preview.png)</span>
                     </div>
                     <h3>Pastel Brand &amp; Web Portfolio</h3>
@@ -721,15 +723,15 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Creative Gallery -->
-        <section id="gallery">
+    <section id="gallery" class="section-band bg-pink">
+        <div class="container">
             <h2>Creative Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="gallery-thumb">
-                        <!-- Replace with: <img src="art-1.png" alt="Visual Art Piece"> -->
                         <span>Artwork / Design 1<br>(art-1.png)</span>
                     </div>
                     <div class="gallery-caption">
@@ -740,7 +742,6 @@
 
                 <div class="gallery-item">
                     <div class="gallery-thumb">
-                        <!-- Replace with: <img src="art-2.png" alt="Business Card Design"> -->
                         <span>Artwork / Design 2<br>(art-2.png)</span>
                     </div>
                     <div class="gallery-caption">
@@ -751,7 +752,6 @@
 
                 <div class="gallery-item">
                     <div class="gallery-thumb">
-                        <!-- Replace with: <img src="art-3.png" alt="Presentation Deck"> -->
                         <span>Artwork / Design 3<br>(art-3.png)</span>
                     </div>
                     <div class="gallery-caption">
@@ -762,7 +762,6 @@
 
                 <div class="gallery-item">
                     <div class="gallery-thumb">
-                        <!-- Replace with: <img src="art-4.png" alt="UI Concept"> -->
                         <span>Artwork / Design 4<br>(art-4.png)</span>
                     </div>
                     <div class="gallery-caption">
@@ -771,10 +770,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Certificates -->
-        <section id="certificates">
+    <section id="certificates" class="section-band bg-cream">
+        <div class="container">
             <h2>Certificates</h2>
             <div class="cert-grid">
                 <div class="cert-card">
@@ -804,10 +804,11 @@
                     <a href="#" class="cert-link">View Credential &rarr;</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact & Socials + QR Code -->
-        <section id="contact">
+    <section id="contact" class="section-band bg-pink">
+        <div class="container">
             <div class="contact-card">
                 <div class="contact-info">
                     <h2>Let's Connect</h2>
@@ -822,16 +823,13 @@
 
                 <div class="qr-box">
                     <div class="qr-placeholder">
-                        <!-- Save your QR image as qr-code.png in the root folder and uncomment below: -->
-                        <!-- <img src="qr-code.png" alt="Portfolio QR Code"> -->
                         <span>Save your QR as<br><strong>qr-code.png</strong></span>
                     </div>
                     <p class="qr-caption">Share My Portfolio</p>
                 </div>
             </div>
-        </section>
-
-    </div>
+        </div>
+    </section>
 
     <footer>
         &copy; 2026 Ann Nicole M. Diamante.
