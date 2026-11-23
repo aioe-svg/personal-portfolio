@@ -541,26 +541,44 @@
         }
 
         .contact-card {
+            max-width: 860px;
+            margin: 0 auto;
             background: #ffffff;
-            border: 2px solid var(--rosy-pink);
-            border-radius: 20px;
-            padding: 42px;
+            border: 1.5px solid var(--rosy-pink);
+            border-left: 6px solid var(--rosy-pink);
+            border-radius: 24px;
+            padding: 44px 48px;
             display: grid;
-            grid-template-columns: 1.6fr 1fr;
-            gap: 32px;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 36px;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+            box-shadow: 0 14px 36px rgba(60, 33, 21, 0.06);
+        }
+
+        .contact-eyebrow {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--espresso-brown);
+            background-color: var(--blush-pink);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
         }
 
         .contact-info h2 {
             text-align: left;
             margin-top: 0;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .contact-info p {
-            margin-bottom: 24px;
+            margin-top: 0;
+            margin-bottom: 26px;
             color: var(--text-body);
+            font-size: 0.98em;
         }
 
         .social-links {
@@ -570,33 +588,58 @@
         }
 
         .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
             background-color: var(--bg-cream);
             color: var(--espresso-brown);
             border: 1.5px solid var(--espresso-brown);
-            padding: 9px 20px;
+            padding: 10px 22px;
             border-radius: 24px;
             font-size: 0.9em;
             font-weight: 600;
-            transition: all 0.25s ease;
+            transition: transform 0.2s ease, background-color 0.25s ease, color 0.25s ease;
         }
 
         .social-btn:hover {
             background-color: var(--espresso-brown);
             color: var(--bg-cream);
+            transform: translateY(-2px);
         }
 
-        .qr-wrapper {
+        .social-btn-primary {
+            background-color: var(--espresso-brown);
+            color: var(--bg-cream);
+        }
+
+        .social-btn-primary:hover {
+            background-color: #563222;
+            border-color: #563222;
+        }
+
+        .qr-stage {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 18px;
+            background: radial-gradient(circle, var(--blush-pink) 0%, var(--bg-cream) 72%);
+            border: 1.5px dashed var(--rosy-pink);
+            border-radius: 22px;
         }
 
         .qr-image {
-            width: 220px;
+            width: 215px;
             max-width: 100%;
             height: auto;
             display: block;
+            filter: drop-shadow(0 8px 16px rgba(60, 33, 21, 0.08));
+            transition: transform 0.3s ease;
+        }
+
+        .qr-stage:hover .qr-image {
+            transform: rotate(-2deg) scale(1.03);
         }
 
         footer {
@@ -669,12 +712,17 @@
                 grid-template-columns: 1fr;
                 text-align: center;
                 padding: 32px 24px;
+                border-left-width: 1.5px;
             }
             .contact-info h2 {
                 text-align: center;
             }
             .social-links {
                 justify-content: center;
+            }
+            .qr-stage {
+                max-width: 260px;
+                margin: 0 auto;
             }
             .qr-image {
                 width: 195px;
@@ -898,15 +946,16 @@
         <div class="container">
             <div class="contact-card">
                 <div class="contact-info">
+                    <span class="contact-eyebrow">Say Hello</span>
                     <h2>Let's Connect</h2>
                     <p>Whether you scanned my business card or found my portfolio online, feel free to reach out for collaborations, UI/UX design projects, or just to say hi!</p>
                     <div class="social-links">
-                        <a href="mailto:annnicolediamante@gmail.com" class="social-btn">Email Me</a>
-                        <a href="https://www.linkedin.com/in/nicole-diamante" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
+                        <a href="mailto:annnicolediamante@gmail.com" class="social-btn social-btn-primary">Email Me</a>
+                        <a href="https://www.linkedin.com/in/nicole-diamante" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn &#8599;</a>
                     </div>
                 </div>
 
-                <div class="qr-wrapper">
+                <div class="qr-stage">
                     <img src="business-card-qr.png" alt="Business Card QR Code" class="qr-image">
                 </div>
             </div>
