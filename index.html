@@ -417,52 +417,61 @@
             box-shadow: 0 14px 32px rgba(60, 33, 21, 0.09);
         }
 
-        .cert-badge {
-            display: inline-block;
-            align-self: flex-start;
-            background-color: var(--blush-pink);
-            color: var(--espresso-brown);
-            font-size: 0.76em;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-        }
-
         .cert-card h3 {
-            margin: 0 0 6px 0;
-            font-size: 1.18em;
+            margin: 0 0 2px 0;
+            font-size: 1.15em;
+            font-weight: 600;
             color: var(--espresso-brown);
+            line-height: 1.35;
         }
 
         .cert-issuer {
-            font-size: 0.9em;
+            font-size: 0.92em;
+            font-weight: 500;
             color: var(--text-body);
-            margin: 0 0 6px 0;
-            line-height: 1.45;
+            margin: 0 0 3px 0;
+            line-height: 1.4;
+        }
+
+        .cert-date {
+            font-size: 0.84em;
+            color: var(--text-body);
+            opacity: 0.72;
+            margin: 0 0 2px 0;
+            line-height: 1.4;
         }
 
         .cert-id {
-            font-size: 0.8em;
+            font-size: 0.82em;
             color: var(--text-body);
-            opacity: 0.75;
-            margin: 0 0 16px 0;
+            opacity: 0.72;
+            margin: 0;
+            line-height: 1.4;
             word-break: break-all;
         }
 
-        .cert-link {
-            font-size: 0.85em;
-            font-weight: 600;
-            color: var(--espresso-brown);
-            text-decoration: none;
-            border-bottom: 1.5px solid var(--rosy-pink);
-            align-self: flex-start;
-            padding-bottom: 2px;
-            margin-top: auto;
+        .cert-actions {
+            margin-top: 16px;
         }
 
-        .cert-link:hover {
-            border-bottom-color: var(--espresso-brown);
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.84em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            background-color: var(--bg-cream);
+            border: 1.5px solid var(--espresso-brown);
+            border-radius: 20px;
+            padding: 6px 16px;
+            text-decoration: none;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .cert-btn:hover {
+            background-color: var(--espresso-brown);
+            color: var(--bg-cream);
         }
 
         .contact-card {
@@ -761,40 +770,48 @@
             <div class="cert-grid">
                 <div class="cert-card">
                     <div>
-                        <span class="cert-badge">Issued Nov 2026</span>
                         <h3>Workato Foundations Level 2</h3>
                         <p class="cert-issuer">Workato</p>
+                        <p class="cert-date">Issued Nov 2026</p>
                     </div>
-                    <a href="https://credentials.workato.com/15a993f3-f275-4f81-a05d-33ebe07aa1c4#acc.KDCIiwdr" target="_blank" rel="noopener noreferrer" class="cert-link">Show Credential &rarr;</a>
+                    <div class="cert-actions">
+                        <a href="https://credentials.workato.com/15a993f3-f275-4f81-a05d-33ebe07aa1c4#acc.KDCIiwdr" target="_blank" rel="noopener noreferrer" class="cert-btn">Show credential &#8599;</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
                     <div>
-                        <span class="cert-badge">Issued Nov 2026</span>
                         <h3>Workato Foundations Level 1</h3>
                         <p class="cert-issuer">Workato</p>
+                        <p class="cert-date">Issued Nov 2026</p>
                     </div>
-                    <a href="https://credentials.workato.com/42a435ea-004b-4541-82a1-0e31832a093b#acc.zH8N9qsj" target="_blank" rel="noopener noreferrer" class="cert-link">Show Credential &rarr;</a>
+                    <div class="cert-actions">
+                        <a href="https://credentials.workato.com/42a435ea-004b-4541-82a1-0e31832a093b#acc.zH8N9qsj" target="_blank" rel="noopener noreferrer" class="cert-btn">Show credential &#8599;</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
                     <div>
-                        <span class="cert-badge">Issued Oct 2026</span>
                         <h3>Introduction to Cloud</h3>
                         <p class="cert-issuer">Cognitive Class</p>
-                        <p class="cert-id">Credential ID: befead0cbf1448f3b8d53023189bd6d7</p>
+                        <p class="cert-date">Issued Oct 2026</p>
+                        <p class="cert-id">Credential ID befead0cbf1448f3b8d53023189bd6d7</p>
                     </div>
-                    <a href="https://courses.cognitiveclass.ai/certificates/befead0cbf1448f3b8d53023189bd6d7" target="_blank" rel="noopener noreferrer" class="cert-link">Show Credential &rarr;</a>
+                    <div class="cert-actions">
+                        <a href="https://courses.cognitiveclass.ai/certificates/befead0cbf1448f3b8d53023189bd6d7" target="_blank" rel="noopener noreferrer" class="cert-btn">Show credential &#8599;</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
                     <div>
-                        <span class="cert-badge">Issued May 2024 · Expires May 2029</span>
                         <h3>Computer Systems Servicing NC II</h3>
                         <p class="cert-issuer">TESDA: Technical Education and Skills Development Authority</p>
-                        <p class="cert-id">Credential ID: 24130602029651</p>
+                        <p class="cert-date">Issued May 2024 &middot; Expires May 2029</p>
+                        <p class="cert-id">Credential ID 24130602029651</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/nicole-diamante/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-link">Show Credential &rarr;</a>
+                    <div class="cert-actions">
+                        <a href="https://www.linkedin.com/in/nicole-diamante/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-btn">Show credential &#8599;</a>
+                    </div>
                 </div>
             </div>
         </div>
