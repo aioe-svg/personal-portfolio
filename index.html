@@ -406,7 +406,7 @@
             color: var(--bg-cream);
         }
 
-        /* Clean Clickable Folder Gallery */
+        /* Folder Gallery with Folder Tab Silhouette */
         .folder-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -432,35 +432,26 @@
             outline: none;
         }
 
-        .folder-tab-row {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            padding-right: 10px;
-        }
-
-        .folder-count-pill {
-            font-size: 0.72em;
-            font-weight: 500;
-            color: rgba(89, 58, 44, 0.78);
-            background-color: rgba(255, 229, 242, 0.65);
-            border: 1px solid rgba(249, 208, 227, 0.9);
-            padding: 3px 11px 2px;
-            border-radius: 12px 12px 0 0;
+        .folder-tab {
+            width: 96px;
+            height: 16px;
+            background-color: rgba(249, 208, 227, 0.85);
+            border: 1.5px solid rgba(249, 208, 227, 0.95);
             border-bottom: none;
-            transition: background-color 0.25s ease, color 0.25s ease;
+            border-radius: 14px 14px 0 0;
+            transition: background-color 0.25s ease;
         }
 
-        .folder-card:hover .folder-count-pill,
-        .folder-card:focus-visible .folder-count-pill {
+        .folder-card:hover .folder-tab,
+        .folder-card:focus-visible .folder-tab {
             background-color: var(--blush-pink);
-            color: var(--espresso-brown);
         }
 
         .folder-body {
             background: #ffffff;
             border: 1.5px solid rgba(249, 208, 227, 0.95);
-            border-radius: 18px;
+            border-top: 4px solid rgba(249, 208, 227, 0.85);
+            border-radius: 0 18px 18px 18px;
             padding: 14px 14px 20px;
             box-shadow: 0 8px 24px rgba(60, 33, 21, 0.045);
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -472,6 +463,7 @@
         .folder-card:hover .folder-body,
         .folder-card:focus-visible .folder-body {
             border-color: var(--rosy-pink);
+            border-top-color: var(--blush-pink);
             box-shadow: 0 14px 30px rgba(60, 33, 21, 0.08);
         }
 
@@ -501,7 +493,7 @@
             position: absolute;
             bottom: 8px;
             right: 8px;
-            background-color: rgba(254, 248, 238, 0.86);
+            background-color: rgba(254, 248, 238, 0.88);
             color: rgba(60, 33, 21, 0.85);
             border: 1px solid rgba(249, 208, 227, 0.95);
             font-size: 0.7em;
@@ -524,6 +516,14 @@
             padding: 0 6px;
         }
 
+        .folder-heading-row {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
         .folder-caption h4 {
             margin: 0 0 4px 0;
             font-size: 1.04em;
@@ -532,11 +532,17 @@
             line-height: 1.35;
         }
 
-        .folder-caption span {
+        .folder-item-count {
+            font-size: 0.76em;
+            font-weight: 500;
+            color: rgba(89, 58, 44, 0.68);
+        }
+
+        .folder-caption span.folder-sub {
             display: block;
             font-size: 0.82em;
             font-weight: 400;
-            color: rgba(89, 58, 44, 0.74);
+            color: rgba(89, 58, 44, 0.76);
             line-height: 1.45;
         }
 
@@ -1187,51 +1193,54 @@
             <div class="folder-grid">
                 <!-- Brand & Apparel -->
                 <button type="button" class="folder-card" data-folder="brand-apparel" aria-label="Open Brand and Apparel folder">
-                    <div class="folder-tab-row">
-                        <span class="folder-count-pill">2 works</span>
-                    </div>
+                    <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
                         <div class="folder-thumb">
                             <img src="apir-brand.png" alt="APIR Brand Identity preview">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
-                            <h4>Brand &amp; Apparel</h4>
-                            <span>APIR Identity &amp; ICT JDVP Uniform</span>
+                            <div class="folder-heading-row">
+                                <h4>Brand &amp; Apparel</h4>
+                                <span class="folder-item-count">&middot; 2 works</span>
+                            </div>
+                            <span class="folder-sub">APIR Identity &amp; ICT JDVP Uniform</span>
                         </div>
                     </div>
                 </button>
 
                 <!-- Campaigns & Event Design -->
                 <button type="button" class="folder-card" data-folder="campaigns-events" aria-label="Open Campaigns and Event Design folder">
-                    <div class="folder-tab-row">
-                        <span class="folder-count-pill">2 works</span>
-                    </div>
+                    <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
                         <div class="folder-thumb">
                             <img src="deck1-1.jpg" alt="Ctrl+Alt+Clean Campaign Deck preview">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
-                            <h4>Campaigns &amp; Event Design</h4>
-                            <span>Ctrl+Alt+Clean &amp; CWTS Banner</span>
+                            <div class="folder-heading-row">
+                                <h4>Campaigns &amp; Event Design</h4>
+                                <span class="folder-item-count">&middot; 2 works</span>
+                            </div>
+                            <span class="folder-sub">Ctrl+Alt+Clean &amp; CWTS Banner</span>
                         </div>
                     </div>
                 </button>
 
                 <!-- Presentation Decks -->
                 <button type="button" class="folder-card" data-folder="presentation-decks" aria-label="Open Presentation Decks folder">
-                    <div class="folder-tab-row">
-                        <span class="folder-count-pill">3 decks</span>
-                    </div>
+                    <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
                         <div class="folder-thumb">
                             <img src="deck3-1.jpg" alt="CodeCraft Essentials Business Plan preview">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
-                            <h4>Presentation Decks</h4>
-                            <span>DSA, Business Plan &amp; Brand Deck</span>
+                            <div class="folder-heading-row">
+                                <h4>Presentation Decks</h4>
+                                <span class="folder-item-count">&middot; 3 decks</span>
+                            </div>
+                            <span class="folder-sub">DSA, Business Plan &amp; Brand Deck</span>
                         </div>
                     </div>
                 </button>
