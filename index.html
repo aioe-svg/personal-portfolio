@@ -406,7 +406,7 @@
             color: var(--bg-cream);
         }
 
-        /* Clickable Folder Gallery */
+        /* Clean Clickable Folder Gallery */
         .folder-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -428,54 +428,41 @@
 
         .folder-card:hover,
         .folder-card:focus-visible {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             outline: none;
         }
 
         .folder-tab-row {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: flex-end;
-            padding-right: 8px;
-        }
-
-        .folder-tab {
-            background-color: var(--rosy-pink);
-            color: var(--espresso-brown);
-            font-size: 0.72em;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding: 6px 18px 5px;
-            border-radius: 14px 14px 0 0;
-            border: 1.5px solid var(--rosy-pink);
-            border-bottom: none;
-            transition: background-color 0.25s ease;
-        }
-
-        .folder-card:hover .folder-tab,
-        .folder-card:focus-visible .folder-tab {
-            background-color: var(--blush-pink);
+            padding-right: 10px;
         }
 
         .folder-count-pill {
-            font-size: 0.74em;
-            font-weight: 600;
+            font-size: 0.72em;
+            font-weight: 500;
+            color: rgba(89, 58, 44, 0.78);
+            background-color: rgba(255, 229, 242, 0.65);
+            border: 1px solid rgba(249, 208, 227, 0.9);
+            padding: 3px 11px 2px;
+            border-radius: 12px 12px 0 0;
+            border-bottom: none;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .folder-card:hover .folder-count-pill,
+        .folder-card:focus-visible .folder-count-pill {
+            background-color: var(--blush-pink);
             color: var(--espresso-brown);
-            background-color: #ffffff;
-            border: 1px solid var(--rosy-pink);
-            padding: 2px 10px;
-            border-radius: 12px;
-            margin-bottom: 4px;
         }
 
         .folder-body {
             background: #ffffff;
-            border: 1.5px solid var(--rosy-pink);
-            border-top: 4px solid var(--rosy-pink);
-            border-radius: 0 18px 18px 18px;
-            padding: 14px 14px 18px;
-            box-shadow: 0 10px 28px rgba(60, 33, 21, 0.06);
+            border: 1.5px solid rgba(249, 208, 227, 0.95);
+            border-radius: 18px;
+            padding: 14px 14px 20px;
+            box-shadow: 0 8px 24px rgba(60, 33, 21, 0.045);
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
             flex: 1;
             display: flex;
@@ -484,17 +471,16 @@
 
         .folder-card:hover .folder-body,
         .folder-card:focus-visible .folder-body {
-            border-color: var(--espresso-brown);
-            border-top-color: var(--rosy-pink);
-            box-shadow: 0 16px 34px rgba(60, 33, 21, 0.11);
+            border-color: var(--rosy-pink);
+            box-shadow: 0 14px 30px rgba(60, 33, 21, 0.08);
         }
 
         .folder-thumb {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: var(--bg-cream);
-            border: 1.5px dashed var(--rosy-pink);
+            background-color: rgba(254, 248, 238, 0.7);
+            border: 1px solid rgba(249, 208, 227, 0.85);
             border-radius: 12px;
             overflow: hidden;
         }
@@ -508,38 +494,39 @@
         }
 
         .folder-card:hover .folder-thumb img {
-            transform: scale(1.03);
+            transform: scale(1.025);
         }
 
         .folder-open-hint {
             position: absolute;
             bottom: 8px;
             right: 8px;
-            background-color: rgba(254, 248, 238, 0.94);
-            color: var(--espresso-brown);
-            border: 1px solid var(--rosy-pink);
-            font-size: 0.72em;
-            font-weight: 600;
+            background-color: rgba(254, 248, 238, 0.86);
+            color: rgba(60, 33, 21, 0.85);
+            border: 1px solid rgba(249, 208, 227, 0.95);
+            font-size: 0.7em;
+            font-weight: 500;
             padding: 3px 10px;
             border-radius: 12px;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
-        .folder-card:hover .folder-open-hint {
-            background-color: var(--espresso-brown);
-            color: var(--bg-cream);
-            border-color: var(--espresso-brown);
+        .folder-card:hover .folder-open-hint,
+        .folder-card:focus-visible .folder-open-hint {
+            background-color: var(--blush-pink);
+            color: var(--espresso-brown);
+            border-color: var(--rosy-pink);
         }
 
         .folder-caption {
-            margin-top: 13px;
+            margin-top: 15px;
             text-align: center;
-            padding: 0 4px;
+            padding: 0 6px;
         }
 
         .folder-caption h4 {
-            margin: 0 0 3px 0;
-            font-size: 1.02em;
+            margin: 0 0 4px 0;
+            font-size: 1.04em;
             font-weight: 600;
             color: var(--espresso-brown);
             line-height: 1.35;
@@ -548,16 +535,16 @@
         .folder-caption span {
             display: block;
             font-size: 0.82em;
-            color: var(--text-body);
-            opacity: 0.85;
-            line-height: 1.4;
+            font-weight: 400;
+            color: rgba(89, 58, 44, 0.74);
+            line-height: 1.45;
         }
 
         /* Folder Contents Modal with Separate Deck/Item Cards */
         .gallery-modal {
             position: fixed;
             inset: 0;
-            background-color: rgba(60, 33, 21, 0.62);
+            background-color: rgba(60, 33, 21, 0.55);
             backdrop-filter: blur(5px);
             display: none;
             align-items: center;
@@ -577,10 +564,10 @@
             max-height: 90vh;
             overflow-y: auto;
             background-color: var(--bg-cream);
-            border: 2px solid var(--rosy-pink);
+            border: 1.5px solid var(--rosy-pink);
             border-radius: 24px;
             padding: 26px 28px 30px;
-            box-shadow: 0 24px 60px rgba(60, 33, 21, 0.25);
+            box-shadow: 0 24px 60px rgba(60, 33, 21, 0.22);
         }
 
         .modal-top {
@@ -590,58 +577,44 @@
             gap: 16px;
             margin-bottom: 22px;
             padding-bottom: 14px;
-            border-bottom: 1.5px dashed var(--rosy-pink);
-        }
-
-        .modal-folder-badge {
-            display: inline-block;
-            font-size: 0.72em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--espresso-brown);
-            background-color: var(--blush-pink);
-            border: 1px solid var(--rosy-pink);
-            padding: 3px 11px;
-            border-radius: 14px;
-            margin-bottom: 6px;
+            border-bottom: 1px dashed rgba(249, 208, 227, 0.95);
         }
 
         .modal-title {
             margin: 0;
-            font-size: 1.4em;
+            font-size: 1.38em;
             font-weight: 600;
             color: var(--espresso-brown);
             line-height: 1.3;
         }
 
         .modal-subtitle {
-            margin: 3px 0 0 0;
-            font-size: 0.88em;
-            color: var(--text-body);
+            margin: 4px 0 0 0;
+            font-size: 0.86em;
+            color: rgba(89, 58, 44, 0.78);
         }
 
         .modal-close {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border: 1.5px solid var(--espresso-brown);
+            border: 1.5px solid var(--rosy-pink);
             background-color: #ffffff;
             color: var(--espresso-brown);
             font-size: 1.2em;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1;
             cursor: pointer;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
         .modal-close:hover {
-            background-color: var(--espresso-brown);
-            color: var(--bg-cream);
+            background-color: var(--blush-pink);
+            border-color: var(--espresso-brown);
         }
 
         .modal-cards-list {
@@ -652,19 +625,19 @@
 
         .deck-item-card {
             background-color: #ffffff;
-            border: 1.5px solid var(--rosy-pink);
-            border-left: 5px solid var(--espresso-brown);
+            border: 1.5px solid rgba(249, 208, 227, 0.95);
+            border-left: 4px solid var(--rosy-pink);
             border-radius: 20px;
             padding: 20px 22px 22px;
-            box-shadow: 0 10px 26px rgba(60, 33, 21, 0.05);
+            box-shadow: 0 8px 24px rgba(60, 33, 21, 0.04);
         }
 
         .deck-carousel-wrap {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: var(--bg-cream);
-            border: 1.5px dashed var(--rosy-pink);
+            background-color: rgba(254, 248, 238, 0.7);
+            border: 1px solid rgba(249, 208, 227, 0.85);
             border-radius: 14px;
             overflow: hidden;
         }
@@ -683,7 +656,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--bg-cream);
+            background-color: rgba(254, 248, 238, 0.7);
         }
 
         .deck-slide-frame img {
@@ -708,10 +681,10 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: rgba(254, 248, 238, 0.94);
-            color: var(--espresso-brown);
-            border: 1px solid var(--rosy-pink);
-            font-size: 0.74em;
+            background-color: rgba(254, 248, 238, 0.88);
+            color: rgba(60, 33, 21, 0.85);
+            border: 1px solid rgba(249, 208, 227, 0.95);
+            font-size: 0.72em;
             font-weight: 600;
             padding: 3px 10px;
             border-radius: 12px;
@@ -726,20 +699,20 @@
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            border: 1.5px solid var(--espresso-brown);
-            background-color: rgba(254, 248, 238, 0.94);
+            border: 1.5px solid rgba(60, 33, 21, 0.35);
+            background-color: rgba(254, 248, 238, 0.88);
             color: var(--espresso-brown);
             font-family: inherit;
             font-size: 1.25em;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            box-shadow: 0 6px 16px rgba(60, 33, 21, 0.14);
-            transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 6px 16px rgba(60, 33, 21, 0.1);
+            transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
             z-index: 5;
             padding: 0;
         }
@@ -751,9 +724,9 @@
         }
 
         .deck-overlay-btn:hover {
-            background-color: var(--espresso-brown);
-            color: var(--bg-cream);
-            transform: translateY(-50%) scale(1.06);
+            background-color: var(--blush-pink);
+            border-color: var(--espresso-brown);
+            transform: translateY(-50%) scale(1.05);
         }
 
         .deck-overlay-prev {
@@ -772,8 +745,8 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            background-color: rgba(254, 248, 238, 0.92);
-            border: 1px solid var(--rosy-pink);
+            background-color: rgba(254, 248, 238, 0.86);
+            border: 1px solid rgba(249, 208, 227, 0.95);
             padding: 5px 10px;
             border-radius: 14px;
             z-index: 4;
@@ -792,26 +765,27 @@
 
         .deck-dot.active {
             background-color: var(--espresso-brown);
-            transform: scale(1.25);
+            transform: scale(1.2);
         }
 
         .deck-item-meta {
-            margin-top: 14px;
+            margin-top: 15px;
             padding-top: 12px;
-            border-top: 1px solid var(--blush-pink);
+            border-top: 1px solid rgba(255, 229, 242, 0.85);
         }
 
         .deck-item-title {
             margin: 0 0 4px 0;
-            font-size: 1.12em;
+            font-size: 1.08em;
             font-weight: 600;
             color: var(--espresso-brown);
         }
 
         .deck-item-desc {
             margin: 0;
-            font-size: 0.9em;
-            color: var(--text-body);
+            font-size: 0.88em;
+            font-weight: 400;
+            color: rgba(89, 58, 44, 0.82);
             line-height: 1.55;
         }
 
@@ -1211,10 +1185,9 @@
         <div class="container">
             <h2>Creative Gallery</h2>
             <div class="folder-grid">
-                <!-- Folder 1: Brand & Apparel -->
+                <!-- Brand & Apparel -->
                 <button type="button" class="folder-card" data-folder="brand-apparel" aria-label="Open Brand and Apparel folder">
                     <div class="folder-tab-row">
-                        <span class="folder-tab">Folder 01</span>
                         <span class="folder-count-pill">2 works</span>
                     </div>
                     <div class="folder-body">
@@ -1229,10 +1202,9 @@
                     </div>
                 </button>
 
-                <!-- Folder 2: Campaigns & Event Design -->
+                <!-- Campaigns & Event Design -->
                 <button type="button" class="folder-card" data-folder="campaigns-events" aria-label="Open Campaigns and Event Design folder">
                     <div class="folder-tab-row">
-                        <span class="folder-tab">Folder 02</span>
                         <span class="folder-count-pill">2 works</span>
                     </div>
                     <div class="folder-body">
@@ -1247,10 +1219,9 @@
                     </div>
                 </button>
 
-                <!-- Folder 3: Presentation Decks -->
+                <!-- Presentation Decks -->
                 <button type="button" class="folder-card" data-folder="presentation-decks" aria-label="Open Presentation Decks folder">
                     <div class="folder-tab-row">
-                        <span class="folder-tab">Folder 03</span>
                         <span class="folder-count-pill">3 decks</span>
                     </div>
                     <div class="folder-body">
@@ -1272,7 +1243,6 @@
         <div class="modal-dialog">
             <div class="modal-top">
                 <div>
-                    <span id="modalFolderBadge" class="modal-folder-badge">Folder</span>
                     <h3 id="modalFolderTitle" class="modal-title">Folder Title</h3>
                     <p id="modalFolderSubtitle" class="modal-subtitle">Folder Subtitle</p>
                 </div>
@@ -1361,7 +1331,6 @@
     <script>
         const galleryFolders = {
             'brand-apparel': {
-                badge: 'Folder 01',
                 title: 'Brand & Apparel',
                 subtitle: 'Identity marks, app branding, and strand uniform graphics.',
                 cards: [
@@ -1390,7 +1359,6 @@
                 ]
             },
             'campaigns-events': {
-                badge: 'Folder 02',
                 title: 'Campaigns & Event Design',
                 subtitle: 'Environmental campaign slides and event banner design.',
                 cards: [
@@ -1424,7 +1392,6 @@
                 ]
             },
             'presentation-decks': {
-                badge: 'Folder 03',
                 title: 'Presentation Decks',
                 subtitle: 'Individual decks with slide-by-slide previews and descriptions.',
                 cards: [
@@ -1491,7 +1458,6 @@
         };
 
         const modal = document.getElementById('galleryModal');
-        const modalFolderBadge = document.getElementById('modalFolderBadge');
         const modalFolderTitle = document.getElementById('modalFolderTitle');
         const modalFolderSubtitle = document.getElementById('modalFolderSubtitle');
         const modalCardsList = document.getElementById('modalCardsList');
@@ -1595,7 +1561,6 @@
             const folder = galleryFolders[folderKey];
             if (!folder) return;
 
-            modalFolderBadge.textContent = folder.badge;
             modalFolderTitle.textContent = folder.title;
             modalFolderSubtitle.textContent = folder.subtitle;
             modalCardsList.innerHTML = '';
