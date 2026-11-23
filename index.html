@@ -92,7 +92,7 @@
         }
 
         .container {
-            max-width: 1040px;
+            max-width: 1120px;
             margin: 0 auto;
         }
 
@@ -141,17 +141,27 @@
             background-color: var(--espresso-brown);
         }
 
+        .about-skills-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+
         .about-card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 40px;
+            padding: 36px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             border-left: 6px solid var(--rosy-pink);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .about-card h2 {
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .about-card h2::after {
@@ -160,15 +170,15 @@
 
         .about-text {
             color: var(--text-body);
-            font-size: 1.05em;
+            font-size: 1em;
         }
 
         .highlight-strip {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 28px;
-            padding-top: 24px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 20px;
             border-top: 1px dashed var(--rosy-pink);
         }
 
@@ -176,44 +186,66 @@
             background-color: var(--bg-cream);
             border: 1px solid var(--rosy-pink);
             border-radius: 12px;
-            padding: 14px 18px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
         }
 
         .highlight-label {
-            display: block;
-            font-size: 0.75em;
+            font-size: 0.78em;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: var(--espresso-brown);
             opacity: 0.75;
-            margin-bottom: 4px;
         }
 
         .highlight-value {
-            font-size: 0.95em;
+            font-size: 0.92em;
             font-weight: 600;
             color: var(--espresso-brown);
+            text-align: right;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .skill-card {
+        .skills-column {
             background: #ffffff;
             border-radius: 16px;
-            padding: 28px;
+            padding: 36px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
-            border-top: 5px solid var(--espresso-brown);
+            border-left: 6px solid var(--espresso-brown);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .skill-card h3 {
+        .skills-column h2 {
+            text-align: left;
+            margin-bottom: 22px;
+        }
+
+        .skills-column h2::after {
+            margin: 10px 0 0;
+        }
+
+        .skills-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .skill-group {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--rosy-pink);
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+
+        .skill-group h3 {
             margin-top: 0;
-            margin-bottom: 16px;
-            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-size: 1.05em;
             color: var(--espresso-brown);
         }
 
@@ -224,11 +256,11 @@
         }
 
         .skill-pill {
-            background-color: var(--bg-cream);
+            background-color: var(--blush-pink);
             color: var(--espresso-brown);
-            font-size: 0.85em;
+            font-size: 0.82em;
             font-weight: 500;
-            padding: 6px 14px;
+            padding: 5px 13px;
             border-radius: 20px;
             border: 1px solid var(--rosy-pink);
         }
@@ -246,7 +278,7 @@
             padding: 32px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 6px solid var(--rosy-pink);
+            border-left: 6px solid var(--espresso-brown);
             display: grid;
             grid-template-columns: 240px 1fr;
             gap: 32px;
@@ -261,7 +293,7 @@
         .project-preview {
             width: 100%;
             height: auto;
-            background: var(--blush-pink);
+            background: var(--bg-cream);
             border: 2px solid var(--rosy-pink);
             border-radius: 14px;
             overflow: hidden;
@@ -357,7 +389,7 @@
         .gallery-thumb {
             width: 100%;
             height: 190px;
-            background-color: var(--bg-cream);
+            background-color: var(--blush-pink);
             border: 1px dashed var(--rosy-pink);
             border-radius: 10px;
             display: flex;
@@ -500,7 +532,7 @@
         }
 
         .qr-box {
-            background: var(--bg-cream);
+            background: var(--blush-pink);
             border: 2px dashed var(--rosy-pink);
             border-radius: 16px;
             padding: 20px;
@@ -535,13 +567,19 @@
         }
 
         footer {
-            background-color: var(--bg-cream);
+            background-color: var(--blush-pink);
             text-align: center;
             padding: 30px;
             color: var(--espresso-brown);
             opacity: 0.85;
             font-size: 0.9em;
             border-top: 1px solid var(--rosy-pink);
+        }
+
+        @media (max-width: 900px) {
+            .about-skills-split {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -590,8 +628,7 @@
     <header class="top-bar">
         <a href="#" class="brand-name">Ann Nicole M. Diamante</a>
         <nav class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
+            <a href="#about">About &amp; Skills</a>
             <a href="#projects">Projects</a>
             <a href="#gallery">Gallery</a>
             <a href="#certificates">Certificates</a>
@@ -606,73 +643,77 @@
 
     <section id="about" class="section-band bg-cream">
         <div class="container">
-            <div class="about-card">
-                <h2>About Me</h2>
-                <div class="about-text">
-                    <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
-                    <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
+            <div class="about-skills-split">
+                <div class="about-card">
+                    <div>
+                        <h2>About Me</h2>
+                        <div class="about-text">
+                            <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
+                            <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-strip">
+                        <div class="highlight-item">
+                            <span class="highlight-label">Education</span>
+                            <span class="highlight-value">BS Information Technology</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-label">Location</span>
+                            <span class="highlight-value">Sta. Mesa, Manila</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-label">Focus Areas</span>
+                            <span class="highlight-value">UI/UX &amp; Web Foundations</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="highlight-strip">
-                    <div class="highlight-item">
-                        <span class="highlight-label">Education</span>
-                        <span class="highlight-value">BS Information Technology</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-label">Location</span>
-                        <span class="highlight-value">Sta. Mesa, Manila</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-label">Focus Areas</span>
-                        <span class="highlight-value">UI/UX &amp; Web Foundations</span>
+                <div class="skills-column">
+                    <div>
+                        <h2>Skills &amp; Tools</h2>
+                        <div class="skills-stack">
+                            <div class="skill-group">
+                                <h3>Web &amp; Database</h3>
+                                <div class="skill-pills">
+                                    <span class="skill-pill">HTML5</span>
+                                    <span class="skill-pill">CSS3</span>
+                                    <span class="skill-pill">Database Normalization</span>
+                                    <span class="skill-pill">ERD Modeling</span>
+                                    <span class="skill-pill">Basic SQL</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-group">
+                                <h3>UI/UX &amp; Creative Design</h3>
+                                <div class="skill-pills">
+                                    <span class="skill-pill">UI Prototyping</span>
+                                    <span class="skill-pill">Wireframing</span>
+                                    <span class="skill-pill">HCI Research</span>
+                                    <span class="skill-pill">Graphic Design</span>
+                                    <span class="skill-pill">Visual Art</span>
+                                    <span class="skill-pill">Presentation Decks</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-group">
+                                <h3>Tools &amp; Workflow</h3>
+                                <div class="skill-pills">
+                                    <span class="skill-pill">VS Code</span>
+                                    <span class="skill-pill">Git &amp; GitHub</span>
+                                    <span class="skill-pill">Vercel</span>
+                                    <span class="skill-pill">Figma</span>
+                                    <span class="skill-pill">Canva</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section-band bg-pink">
-        <div class="container">
-            <h2>Skills &amp; Tools</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Web &amp; Database</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">HTML5</span>
-                        <span class="skill-pill">CSS3</span>
-                        <span class="skill-pill">Database Normalization</span>
-                        <span class="skill-pill">ERD Modeling</span>
-                        <span class="skill-pill">Basic SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3>UI/UX &amp; Creative Design</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">UI Prototyping</span>
-                        <span class="skill-pill">Wireframing</span>
-                        <span class="skill-pill">HCI Research</span>
-                        <span class="skill-pill">Graphic Design</span>
-                        <span class="skill-pill">Visual Art</span>
-                        <span class="skill-pill">Presentation Decks</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Tools &amp; Workflow</h3>
-                    <div class="skill-pills">
-                        <span class="skill-pill">VS Code</span>
-                        <span class="skill-pill">Git &amp; GitHub</span>
-                        <span class="skill-pill">Vercel</span>
-                        <span class="skill-pill">Figma</span>
-                        <span class="skill-pill">Canva</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section-band bg-cream">
+    <section id="projects" class="section-band bg-pink">
         <div class="container">
             <h2>Selected Projects</h2>
             <div class="project-grid">
@@ -697,7 +738,7 @@
         </div>
     </section>
 
-    <section id="gallery" class="section-band bg-pink">
+    <section id="gallery" class="section-band bg-cream">
         <div class="container">
             <h2>Creative Gallery</h2>
             <div class="gallery-grid">
@@ -744,7 +785,7 @@
         </div>
     </section>
 
-    <section id="certificates" class="section-band bg-cream">
+    <section id="certificates" class="section-band bg-pink">
         <div class="container">
             <h2>Certificates</h2>
             <div class="cert-grid">
@@ -778,7 +819,7 @@
         </div>
     </section>
 
-    <section id="contact" class="section-band bg-pink">
+    <section id="contact" class="section-band bg-cream">
         <div class="container">
             <div class="contact-card">
                 <div class="contact-info">
