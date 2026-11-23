@@ -541,7 +541,7 @@
         }
 
         .contact-card {
-            max-width: 860px;
+            max-width: 840px;
             margin: 0 auto;
             background: #ffffff;
             border: 1.5px solid var(--rosy-pink);
@@ -549,8 +549,8 @@
             border-radius: 24px;
             padding: 44px 48px;
             display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            gap: 36px;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 32px;
             align-items: center;
             box-shadow: 0 14px 36px rgba(60, 33, 21, 0.06);
         }
@@ -618,27 +618,17 @@
             border-color: #563222;
         }
 
-        .qr-stage {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 18px;
-            background: radial-gradient(circle, var(--blush-pink) 0%, var(--bg-cream) 72%);
-            border: 1.5px dashed var(--rosy-pink);
-            border-radius: 22px;
-        }
-
         .qr-image {
-            width: 215px;
+            width: 230px;
             max-width: 100%;
             height: auto;
             display: block;
+            margin: 0 auto;
             filter: drop-shadow(0 8px 16px rgba(60, 33, 21, 0.08));
             transition: transform 0.3s ease;
         }
 
-        .qr-stage:hover .qr-image {
+        .qr-image:hover {
             transform: rotate(-2deg) scale(1.03);
         }
 
@@ -720,12 +710,8 @@
             .social-links {
                 justify-content: center;
             }
-            .qr-stage {
-                max-width: 260px;
-                margin: 0 auto;
-            }
             .qr-image {
-                width: 195px;
+                width: 200px;
             }
         }
     </style>
@@ -955,9 +941,7 @@
                     </div>
                 </div>
 
-                <div class="qr-stage">
-                    <img src="business-card-qr.png" alt="Business Card QR Code" class="qr-image">
-                </div>
+                <img src="business-card-qr.png" alt="Business Card QR Code" class="qr-image">
             </div>
         </div>
     </section>
