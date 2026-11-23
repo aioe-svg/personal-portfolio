@@ -404,18 +404,19 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 26px;
-            max-width: 960px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
         .gallery-item {
             background: #ffffff;
             border-radius: 20px;
-            padding: 16px 16px 20px;
+            padding: 14px 14px 18px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             border: 1.5px solid var(--rosy-pink);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -428,7 +429,7 @@
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: var(--blush-pink);
+            background-color: var(--bg-cream);
             border: 1.5px dashed var(--rosy-pink);
             border-radius: 14px;
             overflow: hidden;
@@ -449,6 +450,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            background-color: var(--bg-cream);
         }
 
         .slide-frame img {
@@ -458,15 +460,26 @@
             display: block;
         }
 
+        .slide-frame.fit-contain {
+            background-color: #ffffff;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        .slide-frame.fit-contain img {
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
         .slide-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             border: 1.5px solid var(--espresso-brown);
-            background-color: rgba(254, 248, 238, 0.92);
+            background-color: rgba(254, 248, 238, 0.94);
             color: var(--espresso-brown);
             font-size: 0.95em;
             font-weight: 600;
@@ -492,23 +505,23 @@
         }
 
         .slide-prev {
-            left: 10px;
+            left: 8px;
         }
 
         .slide-next {
-            right: 10px;
+            right: 8px;
         }
 
         .slide-counter {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(254, 248, 238, 0.92);
+            top: 8px;
+            right: 8px;
+            background-color: rgba(254, 248, 238, 0.94);
             color: var(--espresso-brown);
             border: 1px solid var(--rosy-pink);
-            font-size: 0.72em;
+            font-size: 0.7em;
             font-weight: 600;
-            padding: 2px 9px;
+            padding: 2px 8px;
             border-radius: 12px;
             z-index: 4;
             pointer-events: none;
@@ -516,12 +529,12 @@
 
         .slide-dots {
             position: absolute;
-            bottom: 8px;
+            bottom: 7px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 6px;
-            background-color: rgba(254, 248, 238, 0.88);
+            gap: 5px;
+            background-color: rgba(254, 248, 238, 0.9);
             padding: 4px 8px;
             border-radius: 12px;
             border: 1px solid var(--rosy-pink);
@@ -529,8 +542,8 @@
         }
 
         .slide-dot {
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             border: none;
             background-color: var(--rosy-pink);
@@ -547,19 +560,23 @@
         .gallery-caption {
             margin-top: 14px;
             text-align: center;
+            padding: 0 4px;
         }
 
         .gallery-caption h4 {
-            margin: 0 0 2px 0;
-            font-size: 1.05em;
+            margin: 0 0 3px 0;
+            font-size: 0.98em;
             font-weight: 600;
             color: var(--espresso-brown);
+            line-height: 1.35;
         }
 
         .gallery-caption span {
-            font-size: 0.85em;
+            display: block;
+            font-size: 0.81em;
             color: var(--text-body);
             opacity: 0.85;
+            line-height: 1.4;
         }
 
         .cert-grid {
@@ -742,6 +759,12 @@
             opacity: 0.85;
             font-size: 0.9em;
             border-top: 1px solid var(--rosy-pink);
+        }
+
+        @media (max-width: 960px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 900px) {
@@ -943,10 +966,25 @@
         <div class="container">
             <h2>Creative Gallery</h2>
             <div class="gallery-grid">
-                <!-- Deck 1: Ctrl+Alt+Clean -->
+                <!-- Card 1: APIR Brand Identity -->
+                <div class="gallery-item">
+                    <div class="slide-carousel">
+                        <div class="slide-track">
+                            <div class="slide-frame">
+                                <img src="apir-brand.png" alt="APIR Aklatan: Pylon IskoReads Logo and App Icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>APIR — Pylon IskoReads Identity</h4>
+                        <span>App Logo, Wordmark &amp; Icon Design</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ctrl+Alt+Clean Campaign & CWTS Banner -->
                 <div class="gallery-item">
                     <div class="slide-carousel" data-index="0">
-                        <span class="slide-counter">1 / 2</span>
+                        <span class="slide-counter">1 / 3</span>
                         <div class="slide-track">
                             <div class="slide-frame">
                                 <img src="deck1-1.jpg" alt="Ctrl+Alt+Clean Title Slide">
@@ -954,18 +992,36 @@
                             <div class="slide-frame">
                                 <img src="deck1-2.jpg" alt="Ctrl+Alt+Clean Objectives Slide">
                             </div>
+                            <div class="slide-frame fit-contain">
+                                <img src="cwts-banner.jpg" alt="CWTS Clean-Up Drive Event Banner">
+                            </div>
                         </div>
                         <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">&#8249;</button>
                         <button type="button" class="slide-btn slide-next" aria-label="Next slide">&#8250;</button>
                         <div class="slide-dots"></div>
                     </div>
                     <div class="gallery-caption">
-                        <h4>Ctrl+Alt+Clean Campaign Deck</h4>
-                        <span>Gamified Pixel-Art Presentation</span>
+                        <h4>Ctrl+Alt+Clean Campaign &amp; Banner</h4>
+                        <span>CWTS Event Banner &amp; Pixel Deck</span>
                     </div>
                 </div>
 
-                <!-- Deck 2: Hashing & Collision -->
+                <!-- Card 3: ICT Strand JDVP Uniform -->
+                <div class="gallery-item">
+                    <div class="slide-carousel">
+                        <div class="slide-track">
+                            <div class="slide-frame fit-contain">
+                                <img src="jdvp-polo-back.png" alt="ICT Strand JDVP Polo Shirt Back Design">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>ICT Strand — JDVP Uniform</h4>
+                        <span>Grade 12 Apparel Back Print Design</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Hashing & Collision -->
                 <div class="gallery-item">
                     <div class="slide-carousel" data-index="0">
                         <span class="slide-counter">1 / 3</span>
@@ -990,7 +1046,7 @@
                     </div>
                 </div>
 
-                <!-- Deck 3: CodeCraft Essentials -->
+                <!-- Card 5: CodeCraft Essentials -->
                 <div class="gallery-item">
                     <div class="slide-carousel" data-index="0">
                         <span class="slide-counter">1 / 3</span>
@@ -1015,7 +1071,7 @@
                     </div>
                 </div>
 
-                <!-- Deck 4: Blossom & Brilliance -->
+                <!-- Card 6: Blossom & Brilliance -->
                 <div class="gallery-item">
                     <div class="slide-carousel" data-index="0">
                         <span class="slide-counter">1 / 2</span>
@@ -1124,6 +1180,9 @@
             const dotsWrap = carousel.querySelector('.slide-dots');
             const counter = carousel.querySelector('.slide-counter');
             const total = slides.length;
+
+            if (total <= 1) return;
+
             let current = 0;
 
             slides.forEach((_, idx) => {
@@ -1140,12 +1199,12 @@
             function goTo(index) {
                 current = (index + total) % total;
                 track.style.transform = `translateX(-${current * 100}%)`;
-                counter.textContent = `${current + 1} / ${total}`;
+                if (counter) counter.textContent = `${current + 1} / ${total}`;
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
             }
 
-            prevBtn.addEventListener('click', () => goTo(current - 1));
-            nextBtn.addEventListener('click', () => goTo(current + 1));
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
         });
     </script>
 
