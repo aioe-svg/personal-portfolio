@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ann Nicole M. Diamante | Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
         @font-face {
             font-family: 'Peristiwa';
@@ -20,6 +20,10 @@
             --text-body: #593a2c;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-cream); 
@@ -29,17 +33,53 @@
             line-height: 1.7;
         }
 
+        /* Navigation Bar */
         .top-bar {
-            background-color: var(--bg-cream); 
+            background-color: rgba(254, 248, 238, 0.95);
+            backdrop-filter: blur(6px);
             border-bottom: 1px solid var(--rosy-pink);
             padding: 15px 30px;
-            font-weight: 600;
-            color: var(--espresso-brown);
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
+        .brand-name {
+            font-weight: 600;
+            color: var(--espresso-brown);
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--espresso-brown);
+            font-size: 0.85em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--blush-pink);
+        }
+
+        /* Hero Banner (Clean - no button) */
         .hero {
             background-color: var(--blush-pink); 
             padding: 120px 20px 140px;
@@ -62,45 +102,15 @@
             line-height: 1;
         }
 
-        @media (max-width: 768px) {
-            .portfolio-title {
-                font-size: 6em;
-                margin-top: 10px;
-            }
-            .welcome-text {
-                font-size: 1.6em;
-                margin-bottom: 15px;
-            }
-        }
-
         .container {
-            max-width: 1000px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 50px 20px;
         }
 
-        .about-section {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
-            border-left: 6px solid var(--rosy-pink);
-        }
-
-        .about-section h2 {
-            text-align: left;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .about-section h2::after {
-            margin: 10px 0 0;
-        }
-
-        .about-text {
-            color: var(--text-body);
-            font-size: 1.05em;
+        section {
+            scroll-margin-top: 80px;
+            margin-bottom: 75px;
         }
 
         h2 {
@@ -121,6 +131,102 @@
             border-radius: 2px;
         }
 
+        /* About Section + Highlight Strip */
+        .about-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+            border-left: 6px solid var(--rosy-pink);
+        }
+
+        .about-section h2 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .about-section h2::after {
+            margin: 10px 0 0;
+        }
+
+        .about-text {
+            color: var(--text-body);
+            font-size: 1.05em;
+        }
+
+        .highlight-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px dashed var(--rosy-pink);
+        }
+
+        .highlight-item {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--rosy-pink);
+            border-radius: 12px;
+            padding: 14px 18px;
+        }
+
+        .highlight-label {
+            display: block;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--espresso-brown);
+            opacity: 0.75;
+            margin-bottom: 4px;
+        }
+
+        .highlight-value {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+        }
+
+        /* Skills & Tools Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+            border-top: 5px solid var(--rosy-pink);
+        }
+
+        .skill-card h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            color: var(--espresso-brown);
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            background-color: var(--blush-pink);
+            color: var(--espresso-brown);
+            font-size: 0.85em;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--rosy-pink);
+        }
+
+        /* Selected Projects (Upgraded with Thumbnails & Action Buttons) */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -130,10 +236,12 @@
         .card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 30px;
+            padding: 26px;
             box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-top: 6px solid;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -143,20 +251,49 @@
 
         .card-1 { border-color: var(--rosy-pink); } 
         .card-2 { border-color: var(--espresso-brown); } 
+        .card-3 { border-color: var(--rosy-pink); }
+
+        .project-preview {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, var(--blush-pink), var(--bg-cream));
+            border: 1px dashed var(--rosy-pink);
+            border-radius: 12px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--espresso-brown);
+            font-size: 0.85em;
+            font-weight: 500;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .card h3 {
             margin-top: 0;
-            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-size: 1.35em;
             color: var(--espresso-brown);
         }
 
         .card p {
             font-size: 0.95em;
             color: var(--text-body);
+            margin-top: 0;
+            flex-grow: 1;
         }
 
         .tags {
-            margin-top: 15px;
+            margin-top: 12px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -171,21 +308,294 @@
             font-weight: 600;
         }
 
+        .card-actions {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--blush-pink);
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            background-color: var(--bg-cream);
+            border: 1.5px solid var(--espresso-brown);
+            padding: 7px 16px;
+            border-radius: 20px;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--espresso-brown);
+            color: var(--bg-cream);
+        }
+
+        /* Creative Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 14px;
+            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+            border: 1px solid var(--rosy-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-thumb {
+            width: 100%;
+            height: 190px;
+            background-color: var(--blush-pink);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--espresso-brown);
+            font-size: 0.85em;
+            font-weight: 500;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .gallery-caption h4 {
+            margin: 0 0 2px 0;
+            font-size: 0.98em;
+            color: var(--espresso-brown);
+        }
+
+        .gallery-caption span {
+            font-size: 0.8em;
+            color: var(--text-body);
+            opacity: 0.85;
+        }
+
+        /* Certificates Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
+        }
+
+        .cert-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+            border-left: 5px solid var(--espresso-brown);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background-color: var(--blush-pink);
+            color: var(--espresso-brown);
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cert-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.15em;
+            color: var(--espresso-brown);
+        }
+
+        .cert-issuer {
+            font-size: 0.9em;
+            color: var(--text-body);
+            margin: 0 0 14px 0;
+        }
+
+        .cert-link {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            text-decoration: none;
+            border-bottom: 1.5px solid var(--rosy-pink);
+            align-self: flex-start;
+            padding-bottom: 2px;
+        }
+
+        .cert-link:hover {
+            border-bottom-color: var(--espresso-brown);
+        }
+
+        /* Contact & QR Code Section */
+        .contact-card {
+            background: var(--blush-pink);
+            border: 2px solid var(--rosy-pink);
+            border-radius: 20px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(60, 33, 21, 0.05);
+        }
+
+        .contact-info h2 {
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        .contact-info h2::after {
+            margin: 10px 0 0;
+            background-color: var(--espresso-brown);
+        }
+
+        .contact-info p {
+            margin-bottom: 24px;
+            color: var(--espresso-brown);
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-btn {
+            text-decoration: none;
+            background-color: #ffffff;
+            color: var(--espresso-brown);
+            border: 1.5px solid var(--espresso-brown);
+            padding: 9px 18px;
+            border-radius: 24px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--espresso-brown);
+            color: var(--bg-cream);
+        }
+
+        .qr-box {
+            background: #ffffff;
+            border: 2px dashed var(--rosy-pink);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 12px;
+            background-color: var(--bg-cream);
+            border: 1px solid var(--rosy-pink);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-size: 0.8em;
+            color: var(--espresso-brown);
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .qr-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-caption {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            margin: 0;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
             color: var(--espresso-brown);
             opacity: 0.75;
             font-size: 0.9em;
+            border-top: 1px solid var(--rosy-pink);
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                justify-content: center;
+                text-align: center;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            .portfolio-title {
+                font-size: 6em;
+                margin-top: 10px;
+            }
+            .welcome-text {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+            .contact-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .contact-info h2 {
+                text-align: center;
+            }
+            .contact-info h2::after {
+                margin: 10px auto 0;
+            }
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <header class="top-bar">
-        Ann Nicole M. Diamante
+        <a href="#" class="brand-name">Ann Nicole M. Diamante</a>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
+    <!-- Hero Banner -->
     <section class="hero">
         <p class="welcome-text">welcome to my</p>
         <h1 class="portfolio-title">Portfolio</h1>
@@ -193,36 +603,234 @@
 
     <div class="container">
         
-        <div class="about-section">
+        <!-- About Me + Highlight Strip -->
+        <section id="about" class="about-section">
             <h2>About Me</h2>
             <div class="about-text">
                 <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
                 <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
             </div>
-        </div>
 
-        <h2>Selected Projects</h2>
-        
-        <div class="project-grid">
-            <div class="card card-1">
-                <h3>Aklatan: Pylon IskoReads</h3>
-                <p>A mobile library application prototype focused on enhancing user interface design and accessibility for NALLRC library users.</p>
-                <div class="tags">
-                    <span class="tag">HCI Research</span>
-                    <span class="tag">UI Design</span>
-                    <span class="tag">Prototyping</span>
+            <div class="highlight-strip">
+                <div class="highlight-item">
+                    <span class="highlight-label">Education</span>
+                    <span class="highlight-value">BS Information Technology</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-label">Location</span>
+                    <span class="highlight-value">Sta. Mesa, Manila</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-label">Focus Areas</span>
+                    <span class="highlight-value">UI/UX &amp; Web Foundations</span>
                 </div>
             </div>
+        </section>
 
-            <div class="card card-2">
-                <h3>DOLE Contractor System</h3>
-                <p>A comprehensive registration system project featuring robust database normalization, ERD modeling, and clear presentation deliverables.</p>
-                <div class="tags">
-                    <span class="tag">Database Design</span>
-                    <span class="tag">System Architecture</span>
+        <!-- Skills & Tools -->
+        <section id="skills">
+            <h2>Skills &amp; Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Web &amp; Database</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">Database Normalization</span>
+                        <span class="skill-pill">ERD Modeling</span>
+                        <span class="skill-pill">Basic SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>UI/UX &amp; Creative Design</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">UI Prototyping</span>
+                        <span class="skill-pill">Wireframing</span>
+                        <span class="skill-pill">HCI Research</span>
+                        <span class="skill-pill">Graphic Design</span>
+                        <span class="skill-pill">Visual Art</span>
+                        <span class="skill-pill">Presentation Decks</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Tools &amp; Workflow</h3>
+                    <div class="skill-pills">
+                        <span class="skill-pill">VS Code</span>
+                        <span class="skill-pill">Git &amp; GitHub</span>
+                        <span class="skill-pill">Vercel</span>
+                        <span class="skill-pill">Figma</span>
+                        <span class="skill-pill">Canva</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Selected Projects (Upgraded) -->
+        <section id="projects">
+            <h2>Selected Projects</h2>
+            <div class="project-grid">
+                <div class="card card-1">
+                    <div class="project-preview">
+                        <!-- Replace text below with: <img src="aklatan-preview.png" alt="Aklatan App Preview"> -->
+                        <span>App Prototype Preview<br>(Add screenshot: aklatan-preview.png)</span>
+                    </div>
+                    <h3>Aklatan: Pylon IskoReads</h3>
+                    <p>A mobile library application prototype focused on enhancing user interface design and accessibility for NALLRC library users.</p>
+                    <div class="tags">
+                        <span class="tag">HCI Research</span>
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn-outline">View Prototype</a>
+                    </div>
+                </div>
+
+                <div class="card card-2">
+                    <div class="project-preview">
+                        <!-- Replace text below with: <img src="dole-preview.png" alt="DOLE System Preview"> -->
+                        <span>System &amp; ERD Preview<br>(Add screenshot: dole-preview.png)</span>
+                    </div>
+                    <h3>DOLE Contractor System</h3>
+                    <p>A comprehensive registration system project featuring robust database normalization, ERD modeling, and clear presentation deliverables.</p>
+                    <div class="tags">
+                        <span class="tag">Database Design</span>
+                        <span class="tag">System Architecture</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn-outline">View Case Study</a>
+                    </div>
+                </div>
+
+                <div class="card card-3">
+                    <div class="project-preview">
+                        <!-- Replace text below with: <img src="portfolio-preview.png" alt="Personal Brand & Portfolio"> -->
+                        <span>Personal Brand &amp; Web<br>(Add screenshot: portfolio-preview.png)</span>
+                    </div>
+                    <h3>Pastel Brand &amp; Web Portfolio</h3>
+                    <p>A cohesive personal identity spanning a custom QR business card and responsive HTML/CSS portfolio deployed via GitHub and Vercel.</p>
+                    <div class="tags">
+                        <span class="tag">HTML &amp; CSS</span>
+                        <span class="tag">Brand Identity</span>
+                        <span class="tag">Responsive UI</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com" target="_blank" class="btn-outline">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Gallery -->
+        <section id="gallery">
+            <h2>Creative Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <!-- Replace with: <img src="art-1.png" alt="Visual Art Piece"> -->
+                        <span>Artwork / Design 1<br>(art-1.png)</span>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Pastel Character &amp; Motif Study</h4>
+                        <span>Digital Illustration</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <!-- Replace with: <img src="art-2.png" alt="Business Card Design"> -->
+                        <span>Artwork / Design 2<br>(art-2.png)</span>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Personal Business Card</h4>
+                        <span>Print &amp; Brand Layout</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <!-- Replace with: <img src="art-3.png" alt="Presentation Deck"> -->
+                        <span>Artwork / Design 3<br>(art-3.png)</span>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Academic Pitch &amp; System Deck</h4>
+                        <span>Presentation Design</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <!-- Replace with: <img src="art-4.png" alt="UI Concept"> -->
+                        <span>Artwork / Design 4<br>(art-4.png)</span>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4>Mobile Interface Exploration</h4>
+                        <span>UI Component Study</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section id="certificates">
+            <h2>Certificates</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div>
+                        <span class="cert-badge">2026</span>
+                        <h3>Web Development Fundamentals</h3>
+                        <p class="cert-issuer">Issued by: Organization / Platform Name</p>
+                    </div>
+                    <a href="#" class="cert-link">View Credential &rarr;</a>
+                </div>
+
+                <div class="cert-card">
+                    <div>
+                        <span class="cert-badge">2025</span>
+                        <h3>UI/UX Design &amp; Prototyping Essentials</h3>
+                        <p class="cert-issuer">Issued by: Organization / Platform Name</p>
+                    </div>
+                    <a href="#" class="cert-link">View Credential &rarr;</a>
+                </div>
+
+                <div class="cert-card">
+                    <div>
+                        <span class="cert-badge">2025</span>
+                        <h3>Database Management &amp; SQL Basics</h3>
+                        <p class="cert-issuer">Issued by: Organization / Platform Name</p>
+                    </div>
+                    <a href="#" class="cert-link">View Credential &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Socials + QR Code -->
+        <section id="contact">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h2>Let's Connect</h2>
+                    <p>Whether you scanned my business card or found my portfolio online, feel free to reach out for collaborations, UI/UX design projects, or just to say hi!</p>
+                    <div class="social-links">
+                        <a href="mailto:your.email@example.com" class="social-btn">Email Me</a>
+                        <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn">LinkedIn</a>
+                        <a href="https://behance.net" target="_blank" class="social-btn">Behance</a>
+                    </div>
+                </div>
+
+                <div class="qr-box">
+                    <div class="qr-placeholder">
+                        <!-- Save your QR image as qr-code.png in the root folder and uncomment below: -->
+                        <!-- <img src="qr-code.png" alt="Portfolio QR Code"> -->
+                        <span>Save your QR as<br><strong>qr-code.png</strong></span>
+                    </div>
+                    <p class="qr-caption">Share My Portfolio</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
