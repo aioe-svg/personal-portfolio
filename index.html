@@ -1105,7 +1105,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 7px;
             font-size: 0.72em;
             font-weight: 400;
             color: rgba(89, 58, 44, 0.56);
@@ -1123,6 +1123,9 @@
             color: inherit;
             letter-spacing: inherit;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             transition: color 0.2s ease;
         }
 
@@ -1132,8 +1135,12 @@
             outline: none;
         }
 
-        .flip-meta-dot {
-            opacity: 0.55;
+        .quiet-clover-symbol {
+            font-size: 0.88em;
+            line-height: 1;
+            opacity: 0.72;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .pdf-subtle-link {
@@ -1581,8 +1588,8 @@
                     </div>
 
                     <div class="flip-subtle-meta">
-                        <button type="button" class="flip-subtle-trigger" id="flipCardTrigger">Click card to flip &middot; Front</button>
-                        <span class="flip-meta-dot" aria-hidden="true">&middot;</span>
+                        <button type="button" class="flip-subtle-trigger" id="flipCardTrigger">Click card to flip <span class="quiet-clover-symbol" aria-hidden="true">&#9752;&#65038;</span> Front</button>
+                        <span class="quiet-clover-symbol" aria-hidden="true">&#9752;&#65038;</span>
                         <a href="my business card.pdf" target="_blank" rel="noopener noreferrer" class="pdf-subtle-link">Open PDF</a>
                     </div>
                 </div>
@@ -1867,6 +1874,7 @@
 
         const flipCardScene = document.getElementById('businessCardFlip');
         const flipCardTrigger = document.getElementById('flipCardTrigger');
+        const quietCloverMarkup = '<span class="quiet-clover-symbol" aria-hidden="true">&#9752;&#65038;</span>';
 
         function toggleBusinessCardFlip() {
             if (!flipCardScene) return;
@@ -1874,8 +1882,8 @@
             flipCardScene.setAttribute('aria-pressed', String(isFlipped));
             if (flipCardTrigger) {
                 flipCardTrigger.innerHTML = isFlipped
-                    ? 'Click card to flip &middot; Back'
-                    : 'Click card to flip &middot; Front';
+                    ? `Click card to flip ${quietCloverMarkup} Back`
+                    : `Click card to flip ${quietCloverMarkup} Front`;
             }
         }
 
