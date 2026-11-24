@@ -1105,7 +1105,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 6px;
             font-size: 0.72em;
             font-weight: 400;
             color: rgba(89, 58, 44, 0.56);
@@ -1125,7 +1125,7 @@
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             transition: color 0.2s ease;
         }
 
@@ -1136,24 +1136,31 @@
         }
 
         .quiet-clover-symbol {
-            font-size: 0.88em;
+            font-size: 0.74em;
             line-height: 1;
-            opacity: 0.72;
+            opacity: 0.66;
             display: inline-block;
             vertical-align: middle;
         }
 
-        .pdf-subtle-link {
-            color: inherit;
+        .pdf-subtle-bubble {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.5px 8px;
+            border-radius: 999px;
+            background-color: rgba(255, 229, 242, 0.45);
+            border: 1px solid rgba(249, 208, 227, 0.75);
+            color: rgba(89, 58, 44, 0.68);
             text-decoration: none;
-            transition: color 0.2s ease;
+            line-height: 1.35;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
-        .pdf-subtle-link:hover,
-        .pdf-subtle-link:focus-visible {
-            color: rgba(60, 33, 21, 0.85);
-            text-decoration: underline;
-            text-underline-offset: 3px;
+        .pdf-subtle-bubble:hover,
+        .pdf-subtle-bubble:focus-visible {
+            background-color: rgba(255, 229, 242, 0.85);
+            border-color: rgba(249, 208, 227, 0.95);
+            color: rgba(60, 33, 21, 0.88);
             outline: none;
         }
 
@@ -1590,7 +1597,7 @@
                     <div class="flip-subtle-meta">
                         <button type="button" class="flip-subtle-trigger" id="flipCardTrigger">Click card to flip <span class="quiet-clover-symbol" aria-hidden="true">&#9752;&#65038;</span> Front</button>
                         <span class="quiet-clover-symbol" aria-hidden="true">&#9752;&#65038;</span>
-                        <a href="my business card.pdf" target="_blank" rel="noopener noreferrer" class="pdf-subtle-link">Open PDF</a>
+                        <a href="my business card.pdf" target="_blank" rel="noopener noreferrer" class="pdf-subtle-bubble">Open PDF</a>
                     </div>
                 </div>
             </div>
