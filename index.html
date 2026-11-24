@@ -12,6 +12,11 @@
             src: url('peristiwa.otf') format('opentype'); 
         }
 
+        @font-face {
+            font-family: 'Pinyon Script';
+            src: url('pinyon-script.ttf') format('truetype');
+        }
+
         :root {
             --bg-cream: #fef8ee;
             --blush-pink: #ffe5f2;
@@ -226,6 +231,91 @@
             margin-bottom: 18px;
         }
 
+        .about-profile-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: var(--bg-cream);
+            border: 1.5px solid var(--rosy-pink);
+            border-radius: 18px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo-frame {
+            position: relative;
+            width: 104px;
+            height: 124px;
+            flex-shrink: 0;
+            background-color: #ffffff;
+            border: 2px dashed var(--rosy-pink);
+            border-radius: 16px;
+            padding: 6px;
+            box-sizing: border-box;
+            transform: rotate(-2deg);
+            box-shadow: 0 6px 16px rgba(60, 33, 21, 0.06);
+        }
+
+        .profile-photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 10px;
+            background-color: var(--blush-pink);
+            border: 1px solid var(--rosy-pink);
+            border-radius: 4px;
+        }
+
+        .profile-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: var(--blush-pink);
+            border-radius: 11px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6px;
+            box-sizing: border-box;
+            color: var(--espresso-brown);
+            font-size: 0.68em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .profile-photo-placeholder span {
+            font-weight: 400;
+            font-size: 0.88em;
+            color: var(--text-body);
+            margin-top: 2px;
+        }
+
+        .profile-name-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .profile-script-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.35em;
+            font-weight: normal;
+            color: var(--espresso-brown);
+            line-height: 1.05;
+            margin: 0;
+        }
+
+        .profile-role-note {
+            font-size: 0.78em;
+            font-weight: 500;
+            color: var(--text-body);
+            letter-spacing: 0.3px;
+        }
+
         .about-text {
             color: var(--text-body);
             font-size: 1em;
@@ -406,7 +496,6 @@
             color: var(--bg-cream);
         }
 
-        /* Folder Gallery with Folder Tab Silhouette */
         .folder-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -532,7 +621,6 @@
             line-height: 1.4;
         }
 
-        /* Folder Contents Modal with Separate Deck/Item Cards */
         .gallery-modal {
             position: fixed;
             inset: 0;
@@ -1029,6 +1117,13 @@
                 font-size: 1.6em;
                 margin-bottom: 15px;
             }
+            .about-profile-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-script-name {
+                font-size: 2.1em;
+            }
             .card {
                 grid-template-columns: 1fr;
                 padding: 24px;
@@ -1094,6 +1189,20 @@
                 <div class="book-page book-page-left">
                     <div>
                         <h2>About Me</h2>
+
+                        <div class="about-profile-row">
+                            <div class="profile-photo-frame">
+                                <div class="profile-photo-placeholder">
+                                    Photo Coming Soon
+                                    <span>Add photo</span>
+                                </div>
+                            </div>
+                            <div class="profile-name-block">
+                                <p class="profile-script-name">Ann Nicole M. Diamante</p>
+                                <span class="profile-role-note">BSIT Student &bull; UI &amp; Visual Design</span>
+                            </div>
+                        </div>
+
                         <div class="about-text">
                             <p>I am an IT student currently exploring the basics of web development and user interface design. I am still a beginner when it comes to coding, but I am actively learning the foundations of HTML and CSS by building small projects like this portfolio.</p>
                             <p>Outside of programming, I really enjoy visual art, graphic design, and crafting clean, organized presentation decks. I love working with soft pastel aesthetics. My main goal right now is to step out of my comfort zone, improve my technical skills, and learn how to bring my design ideas to life.</p>
@@ -1189,7 +1298,6 @@
         <div class="container">
             <h2>Creative Gallery</h2>
             <div class="folder-grid">
-                <!-- Brand & Apparel -->
                 <button type="button" class="folder-card" data-folder="brand-apparel" aria-label="Open Brand and Apparel folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
@@ -1204,7 +1312,6 @@
                     </div>
                 </button>
 
-                <!-- Campaigns & Event Design -->
                 <button type="button" class="folder-card" data-folder="campaigns-events" aria-label="Open Campaigns and Event Design folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
@@ -1219,7 +1326,6 @@
                     </div>
                 </button>
 
-                <!-- Presentation Decks -->
                 <button type="button" class="folder-card" data-folder="presentation-decks" aria-label="Open Presentation Decks folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
