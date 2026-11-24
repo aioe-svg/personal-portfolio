@@ -803,6 +803,17 @@
             gap: 28px;
         }
 
+        .gallery-quiet-note {
+            margin: 26px 0 0 0;
+            text-align: center;
+            font-size: 0.78em;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.2px;
+            color: var(--text-body);
+            opacity: 0.55;
+        }
+
         .folder-card {
             appearance: none;
             border: none;
@@ -867,7 +878,8 @@
             overflow: hidden;
         }
 
-        .folder-slideshow-img {
+        .folder-slideshow-img,
+        .folder-slideshow-video {
             position: absolute;
             inset: 0;
             width: 100%;
@@ -878,18 +890,21 @@
             pointer-events: none;
         }
 
-        .folder-slideshow-img.is-active {
+        .folder-slideshow-img.is-active,
+        .folder-slideshow-video.is-active {
             opacity: 1;
         }
 
-        .folder-slideshow-img.fit-contain {
+        .folder-slideshow-img.fit-contain,
+        .folder-slideshow-video.fit-contain {
             object-fit: contain;
             background-color: var(--surface-white);
             padding: 8px;
             box-sizing: border-box;
         }
 
-        .folder-card:hover .folder-slideshow-img.is-active {
+        .folder-card:hover .folder-slideshow-img.is-active,
+        .folder-card:hover .folder-slideshow-video.is-active {
             transform: scale(1.03);
         }
 
@@ -1085,7 +1100,8 @@
             background-color: var(--bg-cream);
         }
 
-        .deck-slide-frame img {
+        .deck-slide-frame img,
+        .deck-slide-frame video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1098,7 +1114,8 @@
             box-sizing: border-box;
         }
 
-        .deck-slide-frame.fit-contain img {
+        .deck-slide-frame.fit-contain img,
+        .deck-slide-frame.fit-contain video {
             object-fit: contain;
             border-radius: 8px;
         }
@@ -1568,6 +1585,7 @@
             .flip-card-inner,
             .deck-slide-track,
             .folder-slideshow-img,
+            .folder-slideshow-video,
             .card,
             .folder-card,
             .cert-card {
@@ -1885,7 +1903,7 @@
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
                         <div class="folder-thumb" data-folder-preview="campaigns-events">
-                            <img src="deck1-1.jpg" alt="Ctrl+Alt+Clean Campaign Deck preview" class="folder-slideshow-img is-active">
+                            <video src="ctrl-alt-clean-title.mp4" autoplay loop muted playsinline class="folder-slideshow-video is-active" aria-label="Ctrl+Alt+Clean Campaign Deck preview"></video>
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
@@ -1899,7 +1917,7 @@
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
                         <div class="folder-thumb" data-folder-preview="presentation-decks">
-                            <img src="deck3-1.jpg" alt="CodeCraft Essentials Business Plan preview" class="folder-slideshow-img is-active">
+                            <img src="hashing-ice-breaker.png" alt="Hashing and Collision Interactive Deck preview" class="folder-slideshow-img is-active">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
@@ -1909,6 +1927,7 @@
                     </div>
                 </button>
             </div>
+            <p class="gallery-quiet-note">more works to be uploaded soon... - nicole ༊࿐ .</p>
         </div>
     </section>
 
@@ -2023,6 +2042,7 @@
             'brand-apparel': {
                 title: 'Brand & Apparel',
                 subtitle: 'Identity marks, app branding, and strand uniform graphics.',
+                countUnit: 'work',
                 cards: [
                     {
                         title: 'APIR — Pylon IskoReads Identity',
@@ -2056,19 +2076,25 @@
             'campaigns-events': {
                 title: 'Campaigns & Event Design',
                 subtitle: 'Environmental campaign slides and event banner design.',
+                countUnit: 'work',
                 cards: [
                     {
                         title: 'Ctrl+Alt+Clean Campaign Deck',
                         description: 'Gamified pastel pixel-art presentation deck outlining our environmental awareness and clean-up campaign concept.',
                         slides: [
                             {
-                                src: 'deck1-1.jpg',
-                                alt: 'Ctrl+Alt+Clean Title Slide',
+                                src: 'ctrl-alt-clean-title.mp4',
+                                alt: 'Ctrl+Alt+Clean Title Slide Animation',
                                 fitContain: false
                             },
                             {
-                                src: 'deck1-2.jpg',
+                                src: 'ctrl-alt-clean-obj.png',
                                 alt: 'Ctrl+Alt+Clean Objectives Slide',
+                                fitContain: false
+                            },
+                            {
+                                src: 'ctrl-alt-clean-last.mp4',
+                                alt: 'Ctrl+Alt+Clean Closing Slide Animation',
                                 fitContain: false
                             }
                         ]
@@ -2078,7 +2104,7 @@
                         description: 'Designed as Banner Unit Head under the Creatives committee for our CWTS clean-up and donation drive at PUP.',
                         slides: [
                             {
-                                src: 'cwts-banner.jpg',
+                                src: 'cc_event-banner.png',
                                 alt: 'CWTS Clean-Up Drive Event Banner',
                                 fitContain: true
                             }
@@ -2089,24 +2115,30 @@
             'presentation-decks': {
                 title: 'Presentation Decks',
                 subtitle: 'Individual decks with slide-by-slide previews and descriptions.',
+                countUnit: 'deck',
                 cards: [
                     {
                         title: 'Hashing & Collision Interactive Deck',
                         description: 'Data Structures & Algorithms deck featuring a pink gingham/scrapbook look and interactive scavenger hunt slides.',
                         slides: [
                             {
-                                src: 'deck2-1.jpg',
-                                alt: 'Hashing and Collision Title Slide',
+                                src: 'hashing-ice-breaker.png',
+                                alt: 'Hashing and Collision Scavenger Hunt Title Slide',
                                 fitContain: false
                             },
                             {
-                                src: 'deck2-2.jpg',
-                                alt: 'Scavenger Hunt Title Slide',
-                                fitContain: false
-                            },
-                            {
-                                src: 'deck2-3.jpg',
+                                src: 'hashing-instructions.png',
                                 alt: 'Scavenger Hunt Instructions Slide',
+                                fitContain: false
+                            },
+                            {
+                                src: 'hashing-end.png',
+                                alt: 'Scavenger Hunt Mission Complete Slide',
+                                fitContain: false
+                            },
+                            {
+                                src: 'hashing-map.png',
+                                alt: 'Lost Hash Keys Location Guide Map Slide',
                                 fitContain: false
                             }
                         ]
@@ -2116,17 +2148,17 @@
                         description: 'Editorial presentation deck and HTML basics booklet mockup showcasing clean layout and branding work.',
                         slides: [
                             {
-                                src: 'deck3-1.jpg',
+                                src: 'business_plan-title.png',
                                 alt: 'CodeCraft Essentials Business Plan Cover',
                                 fitContain: false
                             },
                             {
-                                src: 'deck3-2.png',
+                                src: 'business_plan-intro.png',
                                 alt: 'CodeCraft Essentials Introduction Slide',
                                 fitContain: false
                             },
                             {
-                                src: 'deck3-3.png',
+                                src: 'business_plan-exec.png',
                                 alt: 'CodeCraft Essentials Executive Summary Slide',
                                 fitContain: false
                             }
@@ -2134,16 +2166,11 @@
                     },
                     {
                         title: 'Blossom & Brilliance Brand Deck',
-                        description: 'Soft sage and terracotta brand presentation highlighting product direction and logo concept rationale.',
+                        description: 'Soft sage and terracotta brand presentation highlighting floral supply product direction and logo concept rationale.',
                         slides: [
                             {
-                                src: 'deck4-1.png',
-                                alt: 'Blossom & Brilliance Title Slide',
-                                fitContain: false
-                            },
-                            {
-                                src: 'deck4-2.png',
-                                alt: 'Blossom & Brilliance Logo Concept Slide',
+                                src: 'blossom-and-brilliance-title.png',
+                                alt: 'Blossom & Brilliance Product Presentation Title Slide',
                                 fitContain: false
                             }
                         ]
@@ -2153,6 +2180,49 @@
         };
 
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function isVideoSlide(slide) {
+            return slide.type === 'video' || /\.mp4(\?.*)?$/i.test(slide.src || '');
+        }
+
+        function createSlideMediaElement(slide, className) {
+            if (isVideoSlide(slide)) {
+                const video = document.createElement('video');
+                video.src = slide.src;
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.autoplay = !prefersReducedMotion;
+                video.preload = 'metadata';
+                video.setAttribute('aria-label', slide.alt || '');
+                if (className) video.className = className;
+                if (!prefersReducedMotion) {
+                    video.play().catch(() => {});
+                }
+                return video;
+            }
+
+            const img = document.createElement('img');
+            img.src = slide.src;
+            img.alt = slide.alt || '';
+            if (className) img.className = className;
+            return img;
+        }
+
+        function syncFolderCounts() {
+            document.querySelectorAll('.folder-card').forEach((cardEl) => {
+                const folderKey = cardEl.getAttribute('data-folder');
+                const folder = galleryFolders[folderKey];
+                const countEl = cardEl.querySelector('.folder-item-count');
+                if (!folder || !countEl) return;
+
+                const count = folder.cards.length;
+                const unit = folder.countUnit || 'work';
+                countEl.textContent = `${count} ${unit}${count === 1 ? '' : 's'}`;
+            });
+        }
+
+        syncFolderCounts();
 
         // Auto-cycling slideshow preview for closed folder cards
         function initFolderPreviewSlideshows() {
@@ -2166,21 +2236,22 @@
                     .map((c) => c.slides && c.slides[0])
                     .filter(Boolean);
 
-                if (previewSlides.length <= 1) return;
+                if (previewSlides.length === 0) return;
 
                 const hintEl = thumbEl.querySelector('.folder-open-hint');
-                thumbEl.querySelectorAll('.folder-slideshow-img').forEach((img) => img.remove());
+                thumbEl.querySelectorAll('.folder-slideshow-img, .folder-slideshow-video').forEach((el) => el.remove());
 
-                const imgEls = previewSlides.map((slide, idx) => {
-                    const img = document.createElement('img');
-                    img.src = slide.src;
-                    img.alt = slide.alt;
-                    img.className = 'folder-slideshow-img'
+                const mediaEls = previewSlides.map((slide, idx) => {
+                    const baseClass = isVideoSlide(slide) ? 'folder-slideshow-video' : 'folder-slideshow-img';
+                    const fullClass = baseClass
                         + (idx === 0 ? ' is-active' : '')
                         + (slide.fitContain ? ' fit-contain' : '');
-                    thumbEl.insertBefore(img, hintEl || null);
-                    return img;
+                    const mediaEl = createSlideMediaElement(slide, fullClass);
+                    thumbEl.insertBefore(mediaEl, hintEl || null);
+                    return mediaEl;
                 });
+
+                if (previewSlides.length <= 1) return;
 
                 const dotsWrap = document.createElement('div');
                 dotsWrap.className = 'folder-preview-dots';
@@ -2207,10 +2278,10 @@
 
                 const advanceSlide = () => {
                     if (isPaused || document.hidden) return;
-                    imgEls[currentIndex].classList.remove('is-active');
+                    mediaEls[currentIndex].classList.remove('is-active');
                     dotEls[currentIndex].classList.remove('is-active');
-                    currentIndex = (currentIndex + 1) % imgEls.length;
-                    imgEls[currentIndex].classList.add('is-active');
+                    currentIndex = (currentIndex + 1) % mediaEls.length;
+                    mediaEls[currentIndex].classList.add('is-active');
                     dotEls[currentIndex].classList.add('is-active');
                 };
 
@@ -2241,16 +2312,14 @@
             const trackEl = document.createElement('div');
             trackEl.className = 'deck-slide-track';
 
-            cardData.slides.forEach((slide) => {
+            const slideMediaEls = cardData.slides.map((slide) => {
                 const frameEl = document.createElement('div');
                 frameEl.className = 'deck-slide-frame' + (slide.fitContain ? ' fit-contain' : '');
 
-                const imgEl = document.createElement('img');
-                imgEl.src = slide.src;
-                imgEl.alt = slide.alt;
-
-                frameEl.appendChild(imgEl);
+                const mediaEl = createSlideMediaElement(slide, '');
+                frameEl.appendChild(mediaEl);
                 trackEl.appendChild(frameEl);
+                return mediaEl;
             });
 
             carouselWrap.appendChild(trackEl);
@@ -2296,6 +2365,12 @@
                     trackEl.style.transform = `translateX(-${currentSlide * 100}%)`;
                     counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
                     dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+
+                    const activeMedia = slideMediaEls[currentSlide];
+                    if (activeMedia && activeMedia.tagName === 'VIDEO' && !prefersReducedMotion) {
+                        activeMedia.currentTime = 0;
+                        activeMedia.play().catch(() => {});
+                    }
                 }
 
                 prevBtn.addEventListener('click', () => updateSlide(currentSlide - 1));
