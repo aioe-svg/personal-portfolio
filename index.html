@@ -71,13 +71,18 @@
             overflow: hidden;
         }
 
-        /* Balanced floating fireflies across the page */
+        /* Floating fireflies shown only in dark mode */
         .firefly-layer {
             position: fixed;
             inset: 0;
             pointer-events: none;
             overflow: hidden;
             z-index: 40;
+            display: none;
+        }
+
+        body.dark-mode .firefly-layer {
+            display: block;
         }
 
         .firefly {
@@ -88,8 +93,44 @@
                 0 0 7px 2px var(--firefly-glow),
                 0 0 16px 4px var(--firefly-glow);
             opacity: 0;
+            pointer-events: auto;
+            cursor: pointer;
+            touch-action: manipulation;
             will-change: transform, opacity;
             animation: fireflyDrift var(--drift-duration, 16s) ease-in-out var(--drift-delay, 0s) infinite;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .firefly::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid var(--firefly-glow);
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .firefly.is-touched {
+            box-shadow:
+                0 0 12px 4px var(--firefly-core),
+                0 0 26px 9px var(--firefly-glow);
+        }
+
+        .firefly.is-touched::after {
+            animation: fireflyRipple 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes fireflyRipple {
+            0% {
+                opacity: 0.85;
+                transform: scale(0.55);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2.4);
+            }
         }
 
         @keyframes fireflyDrift {
@@ -136,6 +177,14 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        }
+
+        .brand-name:hover {
+            background-color: var(--blush-pink);
+            transform: translateY(-1px);
         }
 
         .nav-group {
@@ -1504,7 +1553,7 @@
                 scroll-behavior: auto;
             }
             .firefly-layer {
-                display: none;
+                display: none !important;
             }
             .welcome-text,
             .portfolio-title,
@@ -1635,7 +1684,7 @@
     <div class="firefly-layer" id="fireflyLayer" aria-hidden="true"></div>
 
     <header class="top-bar">
-        <a href="#" class="brand-name">Ann Nicole M. Diamante</a>
+        <a href="#about" class="brand-name">Ann Nicole M. Diamante</a>
         <div class="nav-group">
             <nav class="nav-links">
                 <a href="#about">About &amp; Skills</a>
@@ -2400,7 +2449,7 @@
             revealItems.forEach((el) => revealObserver.observe(el));
         }
 
-        // Generate a balanced, sparse set of floating fireflies across the viewport
+        // Generate interactive fireflies visible only in dark mode
         const fireflyLayer = document.getElementById('fireflyLayer');
         if (fireflyLayer && !prefersReducedMotion) {
             const fireflyConfigs = [
@@ -2428,6 +2477,17 @@
                 dot.style.setProperty('--drift-x', cfg.dx);
                 dot.style.setProperty('--drift-y', cfg.dy);
                 dot.style.setProperty('--max-opacity', String(cfg.opacity));
+
+                dot.addEventListener('pointerdown', (e) => {
+                    e.stopPropagation();
+                    dot.classList.remove('is-touched');
+                    void dot.offsetWidth;
+                    dot.classList.add('is-touched');
+                    window.setTimeout(() => {
+                        dot.classList.remove('is-touched');
+                    }, 780);
+                });
+
                 fireflyLayer.appendChild(dot);
             });
         }
