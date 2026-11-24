@@ -818,16 +818,58 @@
             overflow: hidden;
         }
 
-        .folder-thumb img {
+        .folder-slideshow-img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease;
+            opacity: 0;
+            transition: opacity 0.85s ease-in-out, transform 0.35s ease;
+            pointer-events: none;
         }
 
-        .folder-card:hover .folder-thumb img {
+        .folder-slideshow-img.is-active {
+            opacity: 1;
+        }
+
+        .folder-slideshow-img.fit-contain {
+            object-fit: contain;
+            background-color: var(--surface-white);
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .folder-card:hover .folder-slideshow-img.is-active {
             transform: scale(1.03);
+        }
+
+        .folder-preview-dots {
+            position: absolute;
+            bottom: 9px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--header-bg);
+            border: 1px solid var(--rosy-pink);
+            padding: 4px 7px;
+            border-radius: 10px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .folder-preview-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--rosy-pink);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .folder-preview-dot.is-active {
+            background-color: var(--espresso-brown);
+            transform: scale(1.25);
         }
 
         .folder-open-hint {
@@ -841,6 +883,7 @@
             font-weight: 500;
             padding: 3px 10px;
             border-radius: 12px;
+            z-index: 2;
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
@@ -1475,7 +1518,7 @@
             }
             .flip-card-inner,
             .deck-slide-track,
-            .folder-thumb img,
+            .folder-slideshow-img,
             .card,
             .folder-card,
             .cert-card {
@@ -1778,8 +1821,8 @@
                 <button type="button" class="folder-card reveal-item" data-folder="brand-apparel" aria-label="Open Brand and Apparel folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
-                        <div class="folder-thumb">
-                            <img src="apir-brand.png" alt="APIR Brand Identity preview">
+                        <div class="folder-thumb" data-folder-preview="brand-apparel">
+                            <img src="apir-icon.png" alt="APIR App Icon preview" class="folder-slideshow-img is-active fit-contain">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
@@ -1792,8 +1835,8 @@
                 <button type="button" class="folder-card reveal-item" data-folder="campaigns-events" aria-label="Open Campaigns and Event Design folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
-                        <div class="folder-thumb">
-                            <img src="deck1-1.jpg" alt="Ctrl+Alt+Clean Campaign Deck preview">
+                        <div class="folder-thumb" data-folder-preview="campaigns-events">
+                            <img src="deck1-1.jpg" alt="Ctrl+Alt+Clean Campaign Deck preview" class="folder-slideshow-img is-active">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
@@ -1806,8 +1849,8 @@
                 <button type="button" class="folder-card reveal-item" data-folder="presentation-decks" aria-label="Open Presentation Decks folder">
                     <div class="folder-tab" aria-hidden="true"></div>
                     <div class="folder-body">
-                        <div class="folder-thumb">
-                            <img src="deck3-1.jpg" alt="CodeCraft Essentials Business Plan preview">
+                        <div class="folder-thumb" data-folder-preview="presentation-decks">
+                            <img src="deck3-1.jpg" alt="CodeCraft Essentials Business Plan preview" class="folder-slideshow-img is-active">
                             <span class="folder-open-hint">Open folder &#8599;</span>
                         </div>
                         <div class="folder-caption">
@@ -1938,9 +1981,13 @@
                         slides: [
                             {
                                 src: 'apir-icon.png',
+                                alt: 'APIR Aklatan: Pylon IskoReads App Icon',
+                                fitContain: true
+                            },
+                            {
                                 src: 'apir-wordmark.png',
-                                alt: 'APIR Aklatan: Pylon IskoReads Logo, Wordmark, and App Icon',
-                                fitContain: false
+                                alt: 'APIR Aklatan: Pylon IskoReads Logo and Wordmark',
+                                fitContain: true
                             }
                         ]
                     },
@@ -2055,6 +2102,76 @@
                 ]
             }
         };
+
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Auto-cycling slideshow preview for closed folder cards
+        function initFolderPreviewSlideshows() {
+            document.querySelectorAll('.folder-card').forEach((cardEl, folderIdx) => {
+                const folderKey = cardEl.getAttribute('data-folder');
+                const folder = galleryFolders[folderKey];
+                const thumbEl = cardEl.querySelector('.folder-thumb');
+                if (!folder || !thumbEl) return;
+
+                const previewSlides = folder.cards
+                    .map((c) => c.slides && c.slides[0])
+                    .filter(Boolean);
+
+                if (previewSlides.length <= 1) return;
+
+                const hintEl = thumbEl.querySelector('.folder-open-hint');
+                thumbEl.querySelectorAll('.folder-slideshow-img').forEach((img) => img.remove());
+
+                const imgEls = previewSlides.map((slide, idx) => {
+                    const img = document.createElement('img');
+                    img.src = slide.src;
+                    img.alt = slide.alt;
+                    img.className = 'folder-slideshow-img'
+                        + (idx === 0 ? ' is-active' : '')
+                        + (slide.fitContain ? ' fit-contain' : '');
+                    thumbEl.insertBefore(img, hintEl || null);
+                    return img;
+                });
+
+                const dotsWrap = document.createElement('div');
+                dotsWrap.className = 'folder-preview-dots';
+                dotsWrap.setAttribute('aria-hidden', 'true');
+
+                const dotEls = previewSlides.map((_, idx) => {
+                    const dot = document.createElement('span');
+                    dot.className = 'folder-preview-dot' + (idx === 0 ? ' is-active' : '');
+                    dotsWrap.appendChild(dot);
+                    return dot;
+                });
+
+                thumbEl.insertBefore(dotsWrap, hintEl || null);
+
+                if (prefersReducedMotion) return;
+
+                let currentIndex = 0;
+                let isPaused = false;
+
+                cardEl.addEventListener('mouseenter', () => { isPaused = true; });
+                cardEl.addEventListener('mouseleave', () => { isPaused = false; });
+                cardEl.addEventListener('focusin', () => { isPaused = true; });
+                cardEl.addEventListener('focusout', () => { isPaused = false; });
+
+                const advanceSlide = () => {
+                    if (isPaused || document.hidden) return;
+                    imgEls[currentIndex].classList.remove('is-active');
+                    dotEls[currentIndex].classList.remove('is-active');
+                    currentIndex = (currentIndex + 1) % imgEls.length;
+                    imgEls[currentIndex].classList.add('is-active');
+                    dotEls[currentIndex].classList.add('is-active');
+                };
+
+                setTimeout(() => {
+                    setInterval(advanceSlide, 3400);
+                }, folderIdx * 900);
+            });
+        }
+
+        initFolderPreviewSlideshows();
 
         const modal = document.getElementById('galleryModal');
         const modalFolderTitle = document.getElementById('modalFolderTitle');
@@ -2264,7 +2381,6 @@
         }
 
         const revealItems = document.querySelectorAll('.reveal-item');
-        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         if (prefersReducedMotion || !('IntersectionObserver' in window)) {
             revealItems.forEach((el) => el.classList.add('is-visible'));
