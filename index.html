@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ann Nicole M. Diamante | Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Poppins:wght@300;400;500;600&display=swap');
 
         @font-face {
             font-family: 'Peristiwa';
@@ -14,7 +14,7 @@
 
         @font-face {
             font-family: 'Pinyon Script';
-            src: url('PinyonScript-Regular.ttf') format('truetype');
+            src: url('pinyon-script.ttf') format('truetype');
         }
 
         :root {
@@ -232,6 +232,7 @@
         }
 
         .about-profile-row {
+            position: relative;
             display: flex;
             align-items: center;
             gap: 20px;
@@ -240,6 +241,36 @@
             border-radius: 18px;
             padding: 14px 18px;
             margin-bottom: 20px;
+        }
+
+        /* Realistic die-cut sticker styling for transparent images or inline SVGs */
+        .sticker {
+            display: inline-block;
+            filter:
+                drop-shadow(0 0 2px #ffffff)
+                drop-shadow(0 0 2px #ffffff)
+                drop-shadow(2px 4px 5px rgba(60, 33, 21, 0.18));
+            transition: transform 0.25s ease, filter 0.25s ease;
+        }
+
+        .sticker:hover {
+            transform: scale(1.08) rotate(2deg);
+            filter:
+                drop-shadow(0 0 2px #ffffff)
+                drop-shadow(0 0 2px #ffffff)
+                drop-shadow(4px 7px 9px rgba(60, 33, 21, 0.24));
+        }
+
+        .about-corner-sticker {
+            position: absolute;
+            top: -14px;
+            right: 16px;
+            transform: rotate(10deg);
+            z-index: 2;
+        }
+
+        .about-corner-sticker:hover {
+            transform: rotate(14deg) scale(1.08);
         }
 
         .profile-photo-frame {
@@ -302,10 +333,10 @@
 
         .profile-script-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.35em;
+            font-size: 2.8em;
             font-weight: normal;
             color: var(--espresso-brown);
-            line-height: 1.05;
+            line-height: 1.1;
             margin: 0;
         }
 
@@ -1122,7 +1153,7 @@
                 text-align: center;
             }
             .profile-script-name {
-                font-size: 2.1em;
+                font-size: 2.35em;
             }
             .card {
                 grid-template-columns: 1fr;
@@ -1191,6 +1222,11 @@
                         <h2>About Me</h2>
 
                         <div class="about-profile-row">
+                            <span class="sticker about-corner-sticker" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                    <path d="M14 2L17.2 10.2L26 11L19.3 16.7L21.4 25.3L14 20.6L6.6 25.3L8.7 16.7L2 11L10.8 10.2L14 2Z" fill="#f9d0e3" stroke="#3c2115" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
                             <div class="profile-photo-frame">
                                 <div class="profile-photo-placeholder">
                                     Photo Coming Soon
