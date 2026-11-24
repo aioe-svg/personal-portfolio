@@ -966,18 +966,17 @@
         }
 
         .contact-card {
-            max-width: 740px;
+            max-width: 860px;
             margin: 0 auto;
-            background: #ffffff;
-            border: 1.5px solid var(--rosy-pink);
-            border-left: 6px solid var(--rosy-pink);
-            border-radius: 24px;
-            padding: 36px 40px;
+            background: linear-gradient(135deg, #fffdf9 0%, #fff7fb 100%);
+            border: 1px solid rgba(249, 208, 227, 0.85);
+            border-radius: 28px;
+            padding: 40px 42px;
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 24px;
+            grid-template-columns: 1.05fr 1.15fr;
+            gap: 34px;
             align-items: center;
-            box-shadow: 0 14px 36px rgba(60, 33, 21, 0.06);
+            box-shadow: 0 14px 36px rgba(60, 33, 21, 0.05);
         }
 
         .contact-eyebrow {
@@ -1043,30 +1042,108 @@
             border-color: #563222;
         }
 
-        .qr-link {
-            display: block;
-            text-decoration: none;
-            margin: 0 auto;
+        .flip-card-showcase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
         }
 
-        .qr-link:focus-visible {
+        .flip-card-scene {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 16 / 9;
+            perspective: 1100px;
+            cursor: pointer;
+        }
+
+        .flip-card-scene:focus-visible {
             outline: 2px solid var(--espresso-brown);
             outline-offset: 6px;
-            border-radius: 14px;
+            border-radius: 20px;
         }
 
-        .qr-image {
-            width: 265px;
-            max-width: 100%;
-            height: auto;
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .flip-card-scene.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-face {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: transparent;
+            box-shadow: 0 10px 26px rgba(60, 33, 21, 0.08);
+        }
+
+        .flip-card-face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
             display: block;
-            margin: 0 auto;
-            mix-blend-mode: multiply;
-            transition: transform 0.3s ease;
         }
 
-        .qr-link:hover .qr-image {
-            transform: rotate(-2deg) scale(1.03);
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .flip-toggle-btn {
+            appearance: none;
+            font-family: inherit;
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            background-color: var(--bg-cream);
+            border: 1px solid rgba(60, 33, 21, 0.32);
+            border-radius: 20px;
+            padding: 6px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .flip-toggle-btn:hover,
+        .flip-toggle-btn:focus-visible {
+            background-color: var(--blush-pink);
+            border-color: var(--espresso-brown);
+            outline: none;
+        }
+
+        .pdf-card-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.82em;
+            font-weight: 500;
+            color: var(--text-body);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .pdf-card-link:hover {
+            color: var(--espresso-brown);
+            background-color: rgba(255, 229, 242, 0.65);
         }
 
         footer {
@@ -1167,7 +1244,6 @@
                 grid-template-columns: 1fr;
                 text-align: center;
                 padding: 32px 24px;
-                border-left-width: 1.5px;
             }
             .contact-info h2 {
                 text-align: center;
@@ -1175,8 +1251,8 @@
             .social-links {
                 justify-content: center;
             }
-            .qr-image {
-                width: 220px;
+            .flip-card-scene {
+                max-width: 340px;
             }
         }
     </style>
@@ -1488,9 +1564,23 @@
                     </div>
                 </div>
 
-                <a href="my business card.pdf" target="_blank" rel="noopener noreferrer" class="qr-link" aria-label="View business card PDF or scan QR code">
-                    <img src="business-card-qr.png" alt="Business Card QR Code — click to view business card" class="qr-image">
-                </a>
+                <div class="flip-card-showcase">
+                    <div class="flip-card-scene" id="businessCardFlip" role="button" tabindex="0" aria-label="Flip business card between front and back" aria-pressed="false">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-face flip-card-front">
+                                <img src="business-card-front.png" alt="Front of Ann Nicole Diamante business card">
+                            </div>
+                            <div class="flip-card-face flip-card-back">
+                                <img src="business-card-back.png" alt="Back of Ann Nicole Diamante business card with contact details and QR code">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card-controls">
+                        <button type="button" class="flip-toggle-btn" id="flipCardBtn">Flip card &#8635;</button>
+                        <a href="my business card.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card-link">Open PDF &#8599;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1769,6 +1859,32 @@
                 closeFolder();
             }
         });
+
+        const flipCardScene = document.getElementById('businessCardFlip');
+        const flipCardBtn = document.getElementById('flipCardBtn');
+
+        function toggleBusinessCardFlip() {
+            if (!flipCardScene) return;
+            const isFlipped = flipCardScene.classList.toggle('is-flipped');
+            flipCardScene.setAttribute('aria-pressed', String(isFlipped));
+            if (flipCardBtn) {
+                flipCardBtn.textContent = isFlipped ? 'Show front ↻' : 'Flip card ↻';
+            }
+        }
+
+        if (flipCardScene) {
+            flipCardScene.addEventListener('click', toggleBusinessCardFlip);
+            flipCardScene.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleBusinessCardFlip();
+                }
+            });
+        }
+
+        if (flipCardBtn) {
+            flipCardBtn.addEventListener('click', toggleBusinessCardFlip);
+        }
     </script>
 
 </body>
