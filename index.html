@@ -496,32 +496,17 @@
             transform: translateX(-50%) scale(1.05);
         }
 
-        .profile-photo-placeholder {
+        .profile-photo-img {
             position: relative;
             z-index: 1;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, var(--blush-pink) 0%, var(--surface-soft) 100%);
-            border: 1px solid var(--rosy-pink);
+            object-fit: cover;
+            object-position: 28% 25%;
             border-radius: 9px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6px;
+            display: block;
+            border: 1px solid var(--rosy-pink);
             box-sizing: border-box;
-            color: var(--espresso-brown);
-            font-size: 0.68em;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .profile-photo-placeholder span {
-            font-weight: 400;
-            font-size: 0.88em;
-            color: var(--text-body);
-            margin-top: 2px;
         }
 
         .profile-name-block {
@@ -1781,10 +1766,7 @@
                                         <rect x="25.2" y="11.2" width="5.6" height="6.8" rx="2.4" fill="#f3bad5" stroke="#9e6d84" stroke-width="0.9"/>
                                     </svg>
                                 </span>
-                                <div class="profile-photo-placeholder">
-                                    Photo Coming Soon
-                                    <span>Add photo</span>
-                                </div>
+                                <img src="nicole-photo.jpg" alt="Ann Nicole M. Diamante portrait" class="profile-photo-img">
                             </div>
                             <div class="profile-name-block">
                                 <p class="profile-script-name">Ann Nicole M. Diamante</p>
@@ -1894,7 +1876,7 @@
                         </div>
                         <div class="folder-caption">
                             <h4>Brand &amp; Apparel</h4>
-                            <span class="folder-item-count">2 works</span>
+                            <span class="folder-item-count">3 works</span>
                         </div>
                     </div>
                 </button>
@@ -2041,7 +2023,7 @@
         const galleryFolders = {
             'brand-apparel': {
                 title: 'Brand & Apparel',
-                subtitle: 'Identity marks, app branding, and strand uniform graphics.',
+                subtitle: 'Identity marks, app branding, posters, and strand uniform graphics.',
                 countUnit: 'work',
                 cards: [
                     {
@@ -2067,6 +2049,22 @@
                             {
                                 src: 'jdvp-polo-back.png',
                                 alt: 'ICT Strand JDVP Polo Shirt Back Design',
+                                fitContain: true
+                            }
+                        ]
+                    },
+                    {
+                        title: 'anthea — Blooming Grace',
+                        description: 'Senior High School project featuring a gold arch monogram label and promotional poster for the "Blooming Grace" eau de parfum.',
+                        slides: [
+                            {
+                                src: 'antheia-logo.png',
+                                alt: 'anthea Blooming Grace 60 ml Eau de Parfum Label Logo',
+                                fitContain: true
+                            },
+                            {
+                                src: 'antheia-poster.jpg',
+                                alt: 'anthea Gentle Florals, Timeless Grace Promotional Poster',
                                 fitContain: true
                             }
                         ]
