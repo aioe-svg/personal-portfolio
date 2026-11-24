@@ -31,26 +31,26 @@
             --contact-grad-end: #fff7fb;
             --shadow-color: rgba(60, 33, 21, 0.08);
             --spine-shadow: rgba(60, 33, 21, 0.12);
-            --firefly-core: rgba(255, 244, 214, 0.9);
-            --firefly-glow: rgba(255, 214, 233, 0.45);
+            --firefly-core: rgba(255, 248, 224, 0.98);
+            --firefly-glow: rgba(255, 216, 155, 0.65);
         }
 
         body.dark-mode {
-            --bg-cream: #3a314e;
-            --blush-pink: #312844;
-            --rosy-pink: #8c6880;
-            --espresso-brown: #f9e8f0;
-            --text-body: #ece0dc;
-            --surface-white: #473c5e;
-            --surface-soft: #52456c;
-            --header-bg: rgba(49, 40, 68, 0.92);
-            --modal-backdrop: rgba(16, 12, 24, 0.62);
-            --contact-grad-start: #4b4063;
-            --contact-grad-end: #3f3554;
-            --shadow-color: rgba(12, 9, 20, 0.24);
-            --spine-shadow: rgba(12, 9, 20, 0.32);
-            --firefly-core: rgba(255, 240, 205, 0.95);
-            --firefly-glow: rgba(220, 177, 194, 0.52);
+            --bg-cream: #2f2946;
+            --blush-pink: #27223b;
+            --rosy-pink: #7c5870;
+            --espresso-brown: #f6e2ec;
+            --text-body: #e7d3ce;
+            --surface-white: #393253;
+            --surface-soft: #433a61;
+            --header-bg: rgba(39, 34, 59, 0.94);
+            --modal-backdrop: rgba(7, 6, 11, 0.68);
+            --contact-grad-start: #3c3457;
+            --contact-grad-end: #312a48;
+            --shadow-color: rgba(7, 6, 11, 0.30);
+            --spine-shadow: rgba(7, 6, 11, 0.38);
+            --firefly-core: rgba(255, 248, 226, 1);
+            --firefly-glow: rgba(255, 214, 178, 0.72);
         }
 
         html {
@@ -71,7 +71,7 @@
             overflow: hidden;
         }
 
-        /* Subtle floating fireflies across the page */
+        /* Balanced floating fireflies across the page */
         .firefly-layer {
             position: fixed;
             inset: 0;
@@ -85,8 +85,8 @@
             border-radius: 50%;
             background: var(--firefly-core);
             box-shadow:
-                0 0 8px 2px var(--firefly-glow),
-                0 0 18px 5px var(--firefly-glow);
+                0 0 7px 2px var(--firefly-glow),
+                0 0 16px 4px var(--firefly-glow);
             opacity: 0;
             will-change: transform, opacity;
             animation: fireflyDrift var(--drift-duration, 16s) ease-in-out var(--drift-delay, 0s) infinite;
@@ -95,21 +95,21 @@
         @keyframes fireflyDrift {
             0% {
                 opacity: 0;
-                transform: translate3d(0, 0, 0) scale(0.75);
+                transform: translate3d(0, 0, 0) scale(0.8);
             }
             20% {
-                opacity: var(--max-opacity, 0.72);
+                opacity: var(--max-opacity, 0.85);
             }
             50% {
-                opacity: calc(var(--max-opacity, 0.72) * 0.55);
-                transform: translate3d(var(--drift-x, 28px), var(--drift-y, -34px), 0) scale(1.08);
+                opacity: calc(var(--max-opacity, 0.85) * 0.68);
+                transform: translate3d(var(--drift-x, 28px), var(--drift-y, -34px), 0) scale(1.12);
             }
             80% {
-                opacity: var(--max-opacity, 0.72);
+                opacity: var(--max-opacity, 0.85);
             }
             100% {
                 opacity: 0;
-                transform: translate3d(calc(var(--drift-x, 28px) * -0.45), calc(var(--drift-y, -34px) * -0.6), 0) scale(0.8);
+                transform: translate3d(calc(var(--drift-x, 28px) * -0.45), calc(var(--drift-y, -34px) * -0.6), 0) scale(0.82);
             }
         }
 
@@ -228,13 +228,10 @@
 
         .hero {
             background-color: var(--blush-pink);
+            border-bottom: 1px solid var(--rosy-pink);
             padding: 120px 20px 140px;
             text-align: center;
-            transition: background-color 0.3s ease;
-        }
-
-        body.dark-mode .hero {
-            background: linear-gradient(180deg, #322847 0%, #3a314e 100%);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .welcome-text {
@@ -256,7 +253,7 @@
         }
 
         body.dark-mode .portfolio-title {
-            color: #e6c2d2;
+            color: #dcb1c2;
         }
 
         .reveal-item {
@@ -292,7 +289,7 @@
         }
 
         body.dark-mode .open-book {
-            background: #6c5167;
+            background: #5f455a;
         }
 
         .open-book::before {
@@ -318,11 +315,11 @@
         body.dark-mode .open-book::before {
             background: linear-gradient(
                 90deg,
-                rgba(12, 9, 20, 0) 0%,
-                rgba(12, 9, 20, 0.12) 35%,
-                rgba(12, 9, 20, 0.28) 50%,
-                rgba(12, 9, 20, 0.12) 65%,
-                rgba(12, 9, 20, 0) 100%
+                rgba(7, 6, 11, 0) 0%,
+                rgba(7, 6, 11, 0.14) 35%,
+                rgba(7, 6, 11, 0.30) 50%,
+                rgba(7, 6, 11, 0.14) 65%,
+                rgba(7, 6, 11, 0) 100%
             );
         }
 
@@ -340,7 +337,7 @@
         }
 
         body.dark-mode .open-book::after {
-            background-color: #201b31;
+            background-color: #161224;
         }
 
         .book-page {
@@ -496,7 +493,7 @@
         }
 
         body.dark-mode .profile-script-name {
-            color: #e6c2d2;
+            color: #dcb1c2;
         }
 
         .profile-role-note {
@@ -548,7 +545,7 @@
         }
 
         body.dark-mode .highlight-label {
-            color: #e6c2d2;
+            color: #dcb1c2;
             opacity: 0.92;
         }
 
@@ -615,7 +612,7 @@
 
         body.dark-mode .skill-pill {
             background-color: var(--surface-soft);
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .skill-pill:hover {
@@ -711,7 +708,7 @@
         body.dark-mode .tag {
             background: var(--surface-soft);
             border-color: var(--rosy-pink);
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .card-actions {
@@ -737,7 +734,7 @@
 
         body.dark-mode .btn-outline {
             border-color: #dcb1c2;
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .btn-outline:hover {
@@ -1208,7 +1205,7 @@
 
         body.dark-mode .cert-btn {
             border-color: #dcb1c2;
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .cert-btn:hover {
@@ -1254,7 +1251,7 @@
         body.dark-mode .contact-eyebrow {
             background-color: var(--surface-soft);
             border-color: var(--rosy-pink);
-            color: #e6c2d2;
+            color: #dcb1c2;
         }
 
         .contact-info h2 {
@@ -1293,7 +1290,7 @@
 
         body.dark-mode .social-btn {
             border-color: #dcb1c2;
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .social-btn:hover {
@@ -1439,7 +1436,7 @@
 
         body.dark-mode .pdf-subtle-bubble {
             background-color: var(--surface-soft);
-            color: #f9e8f0;
+            color: #f6e2ec;
         }
 
         .pdf-subtle-bubble:hover,
@@ -1457,10 +1454,6 @@
             font-size: 0.9em;
             border-top: 1px solid var(--rosy-pink);
             transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        body.dark-mode footer {
-            background-color: #312844;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -2294,16 +2287,16 @@
         const fireflyLayer = document.getElementById('fireflyLayer');
         if (fireflyLayer && !prefersReducedMotion) {
             const fireflyConfigs = [
-                { left: '8%',  top: '16%', size: 4, duration: '15s', delay: '-2s',  dx: '26px',  dy: '-30px', opacity: 0.65 },
-                { left: '22%', top: '34%', size: 3, duration: '18s', delay: '-7s',  dx: '-24px', dy: '-28px', opacity: 0.55 },
-                { left: '38%', top: '14%', size: 5, duration: '17s', delay: '-4s',  dx: '22px',  dy: '26px',  opacity: 0.60 },
-                { left: '62%', top: '22%', size: 3, duration: '19s', delay: '-11s', dx: '-30px', dy: '-22px', opacity: 0.55 },
-                { left: '78%', top: '18%', size: 4, duration: '16s', delay: '-5s',  dx: '-20px', dy: '28px',  opacity: 0.65 },
-                { left: '90%', top: '38%', size: 3, duration: '20s', delay: '-9s',  dx: '-26px', dy: '-26px', opacity: 0.50 },
-                { left: '14%', top: '62%', size: 3, duration: '18s', delay: '-6s',  dx: '24px',  dy: '-24px', opacity: 0.55 },
-                { left: '48%', top: '56%', size: 4, duration: '17s', delay: '-13s', dx: '28px',  dy: '-32px', opacity: 0.60 },
-                { left: '72%', top: '68%', size: 3, duration: '19s', delay: '-3s',  dx: '-22px', dy: '-28px', opacity: 0.55 },
-                { left: '86%', top: '82%', size: 4, duration: '16s', delay: '-8s',  dx: '-24px', dy: '-20px', opacity: 0.60 }
+                { left: '8%',  top: '16%', size: 4, duration: '15s', delay: '-2s',  dx: '26px',  dy: '-30px', opacity: 0.85 },
+                { left: '22%', top: '34%', size: 3.5, duration: '18s', delay: '-7s',  dx: '-24px', dy: '-28px', opacity: 0.78 },
+                { left: '38%', top: '14%', size: 5, duration: '17s', delay: '-4s',  dx: '22px',  dy: '26px',  opacity: 0.82 },
+                { left: '62%', top: '22%', size: 3.5, duration: '19s', delay: '-11s', dx: '-30px', dy: '-22px', opacity: 0.78 },
+                { left: '78%', top: '18%', size: 4.5, duration: '16s', delay: '-5s',  dx: '-20px', dy: '28px',  opacity: 0.86 },
+                { left: '90%', top: '38%', size: 3.5, duration: '20s', delay: '-9s',  dx: '-26px', dy: '-26px', opacity: 0.76 },
+                { left: '14%', top: '62%', size: 3.5, duration: '18s', delay: '-6s',  dx: '24px',  dy: '-24px', opacity: 0.80 },
+                { left: '48%', top: '56%', size: 4.5, duration: '17s', delay: '-13s', dx: '28px',  dy: '-32px', opacity: 0.84 },
+                { left: '72%', top: '68%', size: 3.5, duration: '19s', delay: '-3s',  dx: '-22px', dy: '-28px', opacity: 0.80 },
+                { left: '86%', top: '82%', size: 4, duration: '16s', delay: '-8s',  dx: '-24px', dy: '-20px', opacity: 0.82 }
             ];
 
             fireflyConfigs.forEach((cfg) => {
